@@ -1,8 +1,26 @@
-body {
-    background-color: #101D22;
-    font-family: 'Manrope', sans-serif;
+:root {
+  --color-bg: #101D22;
+  --color-accent: #13B6EC;
+  --color-accent-dark: #0fa0d4;
+  --color-text: #ffffff;
+  --color-text-muted: #94A3B8;
+  --color-surface: #1E293B;
+  --color-surface-hover: #334155;
+  --color-accent-soft: rgba(19, 182, 236, 0.1);
+  --color-accent-border: rgba(19, 182, 236, 0.2);
+  --font-body: 'Manrope', sans-serif;
 }
 
-*{
-    box-sizing: border-box;
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  font-family: var(--font-body);
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
 }
