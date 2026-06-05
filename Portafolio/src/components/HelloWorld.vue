@@ -28,6 +28,56 @@
       </nav>
       <!-- CTA -->
       <div class="right-header">
+        <button
+          class="theme-toggle"
+          type="button"
+          :aria-label="
+            theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
+          "
+          :aria-pressed="theme === 'light'"
+          @click="toggleTheme"
+        >
+          <svg
+            v-if="theme === 'dark'"
+            class="theme-icon"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2" />
+            <path d="M12 20v2" />
+            <path d="m4.93 4.93 1.41 1.41" />
+            <path d="m17.66 17.66 1.41 1.41" />
+            <path d="M2 12h2" />
+            <path d="M20 12h2" />
+            <path d="m6.34 17.66-1.41 1.41" />
+            <path d="m19.07 4.93-1.41 1.41" />
+          </svg>
+          <svg
+            v-else
+            class="theme-icon"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
         <a
           href="/curriculum-vitae.pdf"
           download
@@ -41,7 +91,7 @@
       <!-- ═══ HERO / MAIN SECTION ═══ -->
       <section class="principal-main" id="about">
         <!-- Columna izquierda: contenido principal -->
-        <div class="left-main">
+        <div class="left-main" v-reveal>
           <!-- Overlay badge -->
           <div class="overlay">
             <span class="dot"></span>
@@ -76,12 +126,17 @@
                 viewBox="0 0 24 24"
               >
                 <path
-                  fill="#101D22"
+                  fill="currentColor"
                   d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5L16 11z"
                 />
               </svg>
             </a>
-            <a class="contact-me" href="#contact" aria-label="Go to contact form">Contact Me</a>
+            <a
+              class="contact-me"
+              href="#contact"
+              aria-label="Go to contact form"
+              >Contact Me</a
+            >
           </div>
 
           <!-- Redes sociales -->
@@ -141,7 +196,7 @@
         </div>
 
         <!-- Columna derecha: imagen de perfil -->
-        <div class="right-main">
+        <div class="right-main" v-reveal="200">
           <div class="img-main">
             <img
               src="../assets/perfil.png"
@@ -154,7 +209,7 @@
       </section>
       <!-- ═══ SECOND SECTION ═══ -->
       <section class="second-main">
-        <div class="second-left-main">
+        <div class="second-left-main" v-reveal>
           <!-- 1ra sección: Imagen + info -->
           <div class="one_seccion">
             <!--Imagen-->
@@ -250,7 +305,7 @@
                         ></path>
                         <path
                           d="M9.5 17.5L8.5 8H24L23.5 11H11.5L12 14.5H23L22 24L16 26L10 24L9.5 19H12.5L13 21.5L16 22.5L19 21.5L19.5 17.5H9.5Z"
-                          fill="white"
+                          fill="currentColor"
                         ></path>
                       </g>
                     </svg>
@@ -283,7 +338,7 @@
                         ></path>
                         <path
                           d="M19.5 17.5H9.5L9 14L17 11.5H9L8.5 8.5H24L23.5 12L17 14.5H23L22 24L16 26L10 24L9.5 19H12.5L13 21.5L16 22.5L19 21.5L19.5 17.5Z"
-                          fill="white"
+                          fill="currentColor"
                         ></path>
                       </g>
                     </svg>
@@ -538,7 +593,7 @@
                             ></path>
                           </g>
                           <g transform="translate(134.067720, 70.501129)">
-                            <mask id="mask-3" fill="white">
+                            <mask id="mask-3" fill="currentColor">
                               <use xlink:href="#path-2"></use>
                             </mask>
                             <use
@@ -790,7 +845,7 @@
                         ></path>
                         <path
                           d="M12.1489 5.06152L10.9336 6.27686L14.0725 9.41577C13.9455 9.68819 13.8746 9.99201 13.8746 10.3124C13.8746 11.222 14.4461 11.9981 15.2496 12.3012V19.9798C14.4461 20.2829 13.8746 21.059 13.8746 21.9686C13.8746 23.1422 14.826 24.0936 15.9996 24.0936C17.1732 24.0936 18.1246 23.1422 18.1246 21.9686C18.1246 21.144 17.6549 20.429 16.9684 20.0768V12.3117L19.9689 15.3122C19.8481 15.5791 19.7809 15.8754 19.7809 16.1874C19.7809 17.361 20.7323 18.3124 21.9059 18.3124C23.0795 18.3124 24.0309 17.361 24.0309 16.1874C24.0309 15.0138 23.0795 14.0624 21.9059 14.0624C21.6778 14.0624 21.4582 14.0983 21.2522 14.1648L18.0297 10.9423C18.0914 10.7433 18.1246 10.5317 18.1246 10.3124C18.1246 9.13878 17.1732 8.18738 15.9996 8.18738C15.7803 8.18738 15.5688 8.22061 15.3697 8.2823L12.1489 5.06152Z"
-                          fill="white"
+                          fill="currentColor"
                         ></path>
                       </g>
                     </svg>
@@ -869,8 +924,8 @@
                       <g id="SVGRepo_iconCarrier">
                         <g id="border">
                           <path
-                            fill="#ffffff"
-                            stroke="#ffffff"
+                            fill="currentColor"
+                            stroke="currentColor"
                             stroke-width="10"
                             stroke-miterlimit="10"
                             d="M439.3,188.3c-19.7-32.9-39.1-46.2-51.3-51.5c0,0,0,0,0,0c0,0,0,0,0,0c-0.7-0.3-1.4-0.6-2-0.8 c-0.1,0-0.1,0-0.2-0.1c-0.6-0.2-1.2-0.5-1.8-0.6c-0.1,0-0.1,0-0.2-0.1c-0.6-0.2-1.2-0.4-1.7-0.5c0,0,0,0-0.1,0 c-0.5-0.2-1-0.3-1.5-0.4c-0.1,0-0.1,0-0.2,0c-0.4-0.1-0.9-0.2-1.3-0.3c0,0-0.1,0-0.1,0c-0.4-0.1-0.8-0.2-1.1-0.2c0,0,0,0,0,0 c-0.3-0.1-0.6-0.1-0.9-0.2c0,0,0,0-0.1,0c-0.3,0-0.5-0.1-0.7-0.1c0,0,0,0,0,0c0,0,0,0,0,0c-0.6-0.1-0.9-0.1-0.9-0.1 c-15.4-38.1-83.6-54.1-83.6-54.1l-42.9-1.4c-10.1,0.6-45.9,8.8-84.8,25.7v0c0,0,0,0,0,0c-1.6,0.7-3.3,1.4-4.9,2.2c0,0,0,0,0,0v0 c-32.9,14.8-67.4,35.7-90.1,63.4v0c0,0,0,0,0,0c-1.4,1.6-2.7,3.3-3.9,5c0,0,0,0,0,0l0,0c-17,22.7-25.9,49.7-20.2,81.3 c1.2,6.5,2.5,12.5,3.8,18.1l0,0c0,0,0,0,0,0c24,99.3,75.5,77.5,78,76.4c0,0,0,0,0,0c0.1,0,0.1,0,0.1,0s54.6,44,98.9,31.9 c20.1-5.5,29.5-10.1,33.9-13.6h0c0,0,0,0,0,0c2.7-2.1,3.5-3.7,3.6-4.9c0,0,0,0,0,0c0-0.2,0-0.3,0-0.4v0l0,0 c-0.1-0.8-0.4-1.2-0.4-1.2c20.1,9.4,31.2,13.2,44.8,26.5c13.7,13.3,34.3,33.9,34.3,33.9l18.6-5.1l-14.8-31.1c0,0,23.6,13,57.6-22.6 c25.3-26.4,24.9-50.9,23-61.7h0c0,0,0,0,0,0c0-0.3-0.1-0.5-0.1-0.8c0-0.1,0-0.1,0-0.2c-0.2-0.8-0.3-1.5-0.5-2.1 c0-0.1,0-0.2-0.1-0.2c0-0.2-0.1-0.3-0.1-0.5c0-0.1,0-0.1-0.1-0.2c-0.1-0.2-0.1-0.5-0.2-0.7c0-0.1,0-0.1-0.1-0.2 c0-0.1-0.1-0.2-0.1-0.3c0,0,0,0,0,0h0c-0.1-0.4-0.2-0.7-0.2-0.7C455,273.1,471.6,242.4,439.3,188.3z"
@@ -932,7 +987,11 @@
 
           <!-- 4ta sección Boton de descarga curriculum-->
           <div class="dowloand-cv">
-            <a href="/curriculum-vitae.pdf" download aria-label="Download Curriculum Vitae PDF">
+            <a
+              href="/curriculum-vitae.pdf"
+              download
+              aria-label="Download Curriculum Vitae PDF"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -941,7 +1000,7 @@
                 aria-hidden="true"
               >
                 <path
-                  fill="#FFFFFF"
+                  fill="currentColor"
                   d="M11.625 15.513q-.175-.063-.325-.213l-3.6-3.6q-.3-.3-.288-.7t.288-.7q.3-.3.713-.312t.712.287L11 12.15V5q0-.425.288-.712T12 4t.713.288T13 5v7.15l1.875-1.875q.3-.3.713-.288t.712.313q.275.3.288.7t-.288.7l-3.6 3.6q-.15.15-.325.213t-.375.062t-.375-.062M6 20q-.825 0-1.412-.587T4 18v-2q0-.425.288-.712T5 15t.713.288T6 16v2h12v-2q0-.425.288-.712T19 15t.713.288T20 16v2q0 .825-.587 1.413T18 20z"
                 />
               </svg>
@@ -949,7 +1008,7 @@
             </a>
           </div>
         </div>
-        <div class="second-right-main" id="contact">
+        <div class="second-right-main" id="contact-inline" v-reveal="200">
           <form class="contact-form" action="#" method="POST">
             <div class="contact-heading">
               <h2>Let’s work together</h2>
@@ -999,7 +1058,7 @@
               >
                 <path
                   fill="none"
-                  stroke="#101D22"
+                  stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
@@ -1025,11 +1084,11 @@
                 >
                   <g fill="none">
                     <path
-                      fill="#13B6EC"
+                      fill="currentColor"
                       d="M3 5V4a1 1 0 0 0-1 1zm18 0h1a1 1 0 0 0-1-1zM3 6h18V4H3zm17-1v12h2V5zm-1 13H5v2h14zM4 17V5H2v12zm1 1a1 1 0 0 1-1-1H2a3 3 0 0 0 3 3zm15-1a1 1 0 0 1-1 1v2a3 3 0 0 0 3-3z"
                     />
                     <path
-                      stroke="#13B6EC"
+                      stroke="currentColor"
                       stroke-linecap="round"
                       stroke-linejoin="round"
                       stroke-width="2"
@@ -1045,11 +1104,11 @@
       </section>
       <!-- ═══ THIRD SECTION - PROJECTS ═══ -->
       <section class="third-section" id="projects">
-        <div class="overlay-projects">
+        <div class="overlay-projects" v-reveal>
           <span class="dot-projects"></span>
           <p>PORTAFOLIO 2026</p>
         </div>
-        <div class="featured-projects">
+        <div class="featured-projects" v-reveal="100">
           <h2>Featured <span>Projects</span></h2>
           <p>
             A curated selection of technical solutions engineered with
@@ -1060,7 +1119,7 @@
         <!-- ═══ PROJECTS GRID ═══ -->
         <div class="projects-grid">
           <!-- E-Commerce Dashboard -->
-          <article class="project-card">
+          <article class="project-card" v-reveal="200">
             <div class="project-media">
               <span class="project-category" style="background: #13b6ec"
                 >WEB APPLICATION</span
@@ -1085,7 +1144,11 @@
                 resulting in a 40% reduction in latency.
               </p>
               <div class="project-footer">
-                <a href="#" rel="nofollow" aria-label="View demo for E-Commerce Dashboard">
+                <a
+                  href="#"
+                  rel="nofollow"
+                  aria-label="View demo for E-Commerce Dashboard"
+                >
                   View Demo
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -1109,7 +1172,7 @@
                     aria-hidden="true"
                   >
                     <path
-                      fill="#FFFFFF"
+                      fill="currentColor"
                       d="m8 18l-6-6l6-6l1.425 1.425l-4.6 4.6L9.4 16.6zm8 0l-1.425-1.425l4.6-4.6L14.6 7.4L16 6l6 6z"
                     />
                   </svg>
@@ -1119,7 +1182,7 @@
           </article>
 
           <!-- NeoVault Mobile -->
-          <article class="project-card">
+          <article class="project-card" v-reveal="300">
             <div class="project-media">
               <span class="project-category" style="background: #6366f1"
                 >MOBILE</span
@@ -1144,7 +1207,11 @@
                 authorization protocols.
               </p>
               <div class="project-footer">
-                <a href="#" rel="nofollow" aria-label="View demo for NeoVault Mobile">
+                <a
+                  href="#"
+                  rel="nofollow"
+                  aria-label="View demo for NeoVault Mobile"
+                >
                   View Demo
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -1168,7 +1235,7 @@
                     aria-hidden="true"
                   >
                     <path
-                      fill="#FFFFFF"
+                      fill="currentColor"
                       d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h16q.825 0 1.413.588T22 6v12q0 .825-.587 1.413T20 20zm0-2h16V8H4zm3.5-1l-1.4-1.4L8.675 13l-2.6-2.6L7.5 9l4 4zm4.5 0v-2h6v2z"
                     />
                   </svg>
@@ -1178,7 +1245,7 @@
           </article>
 
           <!-- Lumina AI Hub -->
-          <article class="project-card">
+          <article class="project-card" v-reveal="400">
             <div class="project-media">
               <span class="project-category" style="background: #06b6d4"
                 >AI &amp; UI/UX</span
@@ -1203,7 +1270,11 @@
                 200%.
               </p>
               <div class="project-footer">
-                <a href="#" rel="nofollow" aria-label="View demo for Lumina AI Hub">
+                <a
+                  href="#"
+                  rel="nofollow"
+                  aria-label="View demo for Lumina AI Hub"
+                >
                   View Demo
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -1227,7 +1298,7 @@
                     aria-hidden="true"
                   >
                     <path
-                      fill="#FFFFFF"
+                      fill="currentColor"
                       d="M24.292 15.547a3.93 3.93 0 0 0 4.115-3.145a2.57 2.57 0 0 0-2.161-1.177c-2.272-.052-3.491 2.651-1.953 4.323zm-9.177-10.85l5.359-3.104L18.766.63l-7.391 4.281l.589.328l1.119.629l2.032-1.176zm6.046-3.39c.089.027.161.1.188.188l2.484 7.593a.285.285 0 0 1-.125.344a5.06 5.06 0 0 0-2.317 5.693a5.066 5.066 0 0 0 5.401 3.703a.3.3 0 0 1 .307.203l2.563 7.803a.3.3 0 0 1-.125.344l-7.859 4.771a.3.3 0 0 1-.131.036a.26.26 0 0 1-.203-.041l-2.765-1.797a.3.3 0 0 1-.109-.129l-5.396-12.896l-8.219 4.875c-.016.011-.037.021-.052.032a.3.3 0 0 1-.261-.021l-1.859-1.093a.283.283 0 0 1-.115-.381l7.953-15.749a.27.27 0 0 1 .135-.131L18.615.045a.29.29 0 0 1 .292-.005zm-8.322 5.1l-1.932-1.089l-7.693 15.229l1.396.823l6.631-9.015a.28.28 0 0 1 .271-.12a.29.29 0 0 1 .235.177l7.228 17.296l1.933 1.251l-8.063-24.552zm13.406 10.557c-2.256 0-3.787-2.292-2.923-4.376c.86-2.083 3.563-2.619 5.156-1.025c.595.593.928 1.396.928 2.235a3.16 3.16 0 0 1-3.161 3.167z"
                     />
                   </svg>
@@ -1237,7 +1308,7 @@
           </article>
 
           <!-- Developer Portfolio -->
-          <article class="project-card">
+          <article class="project-card" v-reveal="500">
             <div class="project-media">
               <span class="project-category" style="background: #13b6ec"
                 >WEB APPLICATION</span
@@ -1262,7 +1333,11 @@
                 presentation across desktop, tablet, and mobile devices.
               </p>
               <div class="project-footer">
-                <a href="#" rel="nofollow" aria-label="View demo for Developer Portfolio">
+                <a
+                  href="#"
+                  rel="nofollow"
+                  aria-label="View demo for Developer Portfolio"
+                >
                   View Demo
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -1286,7 +1361,7 @@
                     aria-hidden="true"
                   >
                     <path
-                      fill="#FFFFFF"
+                      fill="currentColor"
                       d="M0 342v-1C9 225 51 138 124 83C196 27 274 0 359 0c89-1 172 29 246 89c75 59 112 147 112 261v7c0 115-37 201-112 260c-75 60-158 90-247 90h-4c-87-1-167-31-241-91C39 557 1 466 0 342m337-157V27h-24c-5 6-9 13-13 19s-8 12-12 19c-4 6-9 14-12 20c-4 6-7 12-10 19c-6 10-11 20-15 29c-5 9-9 18-12 26c6 4 13 9 21 12c9 3 18 6 27 8c10 2 19 3 27 4c9 1 17 2 23 2m42-158v157c5 0 11 1 17 0c6 0 13-1 19-2c11-2 24-5 34-8c11-4 21-9 28-15c-12-29-25-52-38-74s-28-41-44-57v-1zm-108 9v-1c-7 3-14 8-22 11c-7 3-16 7-23 11q-21 10.5-42 24c-13 9-26 19-37 29c4 4 9 8 13 11s9 7 14 11c4 2 9 5 14 9c5 3 11 7 17 11c8-18 16-37 26-54c10-18 21-35 32-50c1-2 2-4 4-6c1-1 2-4 4-6m306 74v-1c-25-19-47-35-69-45s-44-20-64-28c16 16 30 36 39 55c10 20 20 41 28 61c4-2 9-4 15-8c5-3 12-6 18-9c6-4 11-8 17-12c6-5 12-9 16-13m-17 223h115c0-37-8-72-23-108c-14-35-34-64-59-89v-1c-5 8-12 15-19 20c-8 5-15 9-23 13c-5 3-10 7-15 9c-5 3-12 5-17 8c4 8 8 17 12 25c3 9 8 19 10 28c6 16 10 33 14 50c3 15 5 31 5 45M198 185v-1c-8-4-17-7-24-11c-7-5-14-10-20-14c-6-3-12-7-17-11s-9-8-13-12c-26 25-45 53-57 86c-13 33-22 70-26 110h123c0-28 4-55 11-82c6-28 15-49 23-65m139 147V217c-8 1-18 1-27 0c-10-1-20-4-29-7c-8-2-18-4-26-7c-9-2-18-6-25-10c-6 10-11 22-15 35c-5 12-8 25-11 37c-2 12-3 25-4 36s-2 22-2 31zm42-113v113h148c0-6 0-13-1-21c-2-7-3-16-4-24c-3-12-6-25-10-37c-4-11-8-22-13-31c-2-5-4-11-6-15c-3-5-6-8-8-11c-11 8-26 13-44 17c-17 4-37 8-55 9zM164 365H41c0 17 3 36 8 59c5 24 15 46 26 70c5 12 11 24 17 36c7 11 15 23 23 34c6-4 12-7 17-10c6-3 13-7 19-10c7-3 14-6 22-10c7-3 16-7 25-11c-8-25-17-49-23-76c-7-26-11-52-11-81zm173 117V365H198c0 8 1 20 3 32c1 12 4 25 6 38c4 14 7 28 11 40s8 22 12 31c18-7 36-12 48-15c13-4 25-7 37-8h11c4-1 8-1 11-1m42-117v116c7 1 15 2 23 3c9 1 20 3 29 5l15 3c5 2 11 3 16 4c6 2 12 3 18 5c5 2 10 3 14 5c13-33 21-60 26-83c5-22 7-41 7-57v-1zm296 1v-1H560v6c-1 19-4 41-8 64c-4 22-13 48-25 80c16 8 31 16 43 24s23 17 31 25c17-17 32-40 45-70c13-29 22-59 27-91c1-6 1-12 2-18zM337 670V514c-25 4-46 9-62 13s-28 8-36 12c6 15 12 28 18 40c6 11 13 23 19 33c2 4 6 8 9 13c3 4 5 9 8 13c3 5 6 11 9 17c4 5 7 11 11 15zm42 0h23c9-7 18-17 25-28c8-11 17-24 23-35c7-13 14-25 20-37s11-23 15-31c-11-4-26-8-41-12s-36-8-65-12zm198-82v-1c-2-3-6-7-9-10s-8-7-13-10q-6-4.5-15-9c-9-4.5-14-7-21-11c-4 8-11 22-21 41c-9 19-25 42-45 67c25-4 47-13 67-25c22-11 41-26 57-42m-372-32v-1c-7 4-18 9-29 14c-12 5-25 11-37 19c7 6 14 12 20 16c6 5 13 9 19 13c11 7 24 14 37 20s29 12 49 18c-7-8-12-18-17-26s-11-16-16-24s-9-17-13-25c-5-8-9-16-13-24"
                     />
                   </svg>
@@ -1298,10 +1373,10 @@
       </section>
       <!-- ═══ FOURTH SECTION - EXPERIENCE ═══ -->
       <section class="fourth-section" id="experience">
-        <div class="overlay-experience">
+        <div class="overlay-experience" v-reveal>
           <p>CAREER ODYSSEY</p>
         </div>
-        <div class="featured-experience">
+        <div class="featured-experience" v-reveal="100">
           <h2>Professional <span>Experience</span></h2>
           <p>
             A journey through building robust systems, crafting fluid user
@@ -1312,6 +1387,7 @@
         <div class="experience-timeline">
           <article
             class="experience-card"
+            v-reveal="200"
             :class="{ active: activeExperience === 0 }"
             role="button"
             tabindex="0"
@@ -1356,6 +1432,7 @@
 
           <article
             class="experience-card"
+            v-reveal="320"
             :class="{ active: activeExperience === 1 }"
             role="button"
             tabindex="0"
@@ -1400,6 +1477,7 @@
 
           <article
             class="experience-card"
+            v-reveal="440"
             :class="{ active: activeExperience === 2 }"
             role="button"
             tabindex="0"
@@ -1443,15 +1521,322 @@
           </article>
         </div>
 
-        <div class="cta-card">
+        <div class="cta-card" v-reveal>
           <h2>READY TO BUILD SOMETHING EXTRAORDINARY?</h2>
           <p>
             I'm currently available for senior-level engineering roles and
             architectural consultation.
           </p>
           <div class="cta-buttons">
-            <a class="cta-primary" href="#contact" aria-label="Go to contact form">Get In Touch</a>
-            <a class="cta-secondary" href="https://github.com/jonathan" target="_blank" rel="noopener noreferrer" aria-label="View GitHub profile (opens in new tab)">View Github</a>
+            <a
+              class="cta-primary"
+              href="#contact"
+              aria-label="Go to contact form"
+              >Get In Touch</a
+            >
+            <a
+              class="cta-secondary"
+              href="https://github.com/jonathan"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View GitHub profile (opens in new tab)"
+              >View Github</a
+            >
+          </div>
+        </div>
+      </section>
+      <section class="seccion-contact" id="contact" aria-labelledby="contact-heading">
+        <div class="contact-container">
+          <header class="contact-header" v-reveal>
+            <h2 id="contact-heading">
+              Let’s build
+              <span class="contact-highlight">something great.</span>
+            </h2>
+            <p>
+              I’m currently looking for new opportunities and creative
+              collaborations. Whether you have a question or just want to say
+              hi, my inbox is always open.
+            </p>
+          </header>
+
+          <div class="contact-grid">
+            <form class="contact-form-card" action="#" method="POST" novalidate v-reveal="120">
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="contact-name">FULL NAME</label>
+                  <input
+                    id="contact-name"
+                    name="name"
+                    type="text"
+                    placeholder="John Doe"
+                    autocomplete="name"
+                    required
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="contact-email">EMAIL ADDRESS</label>
+                  <input
+                    id="contact-email"
+                    name="email"
+                    type="email"
+                    placeholder="john@example.com"
+                    autocomplete="email"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="contact-message">YOUR MESSAGE</label>
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  placeholder="Tell me about your project…"
+                  rows="5"
+                  required
+                ></textarea>
+              </div>
+
+              <button class="send-message contact-submit" type="submit">
+                <span>Send Message</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M5 12h14M12 5l7 7-7 7"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+            </form>
+
+            <aside class="contact-info" aria-label="Contact information">
+              <div class="info-card info-direct" v-reveal="200">
+                <h3>Direct Communication</h3>
+                <a
+                  class="info-direct-link"
+                  href="mailto:tijonathanrosas01@gmail.com"
+                >
+                  <span class="info-icon-box" aria-hidden="true">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="22"
+                      height="22"
+                      viewBox="0 0 24 24"
+                    >
+                      <g fill="none">
+                        <path
+                          fill="currentColor"
+                          d="M3 5V4a1 1 0 0 0-1 1zm18 0h1a1 1 0 0 0-1-1zM3 6h18V4H3zm17-1v12h2V5zm-1 13H5v2h14zM4 17V5H2v12zm1 1a1 1 0 0 1-1-1H2a3 3 0 0 0 3 3zm15-1a1 1 0 0 1-1 1v2a3 3 0 0 0 3-3z"
+                        />
+                        <path
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="m3 5l9 9l9-9"
+                        />
+                      </g>
+                    </svg>
+                  </span>
+                  <div class="info-text">
+                    <span class="info-label">EMAIL ME</span>
+                    <span class="info-value">tijonathanrosas01@gmail.com</span>
+                  </div>
+                </a>
+              </div>
+
+              <div class="info-card info-social" v-reveal="320">
+                <h3>Follow &amp; Connect</h3>
+                <ul class="info-social-list">
+                  <li>
+                    <a
+                      href="https://github.com/jonathan-rosas"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="GitHub (opens in new tab)"
+                    >
+                      <span class="info-icon-box" aria-hidden="true">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            fill="currentColor"
+                            d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.94c0-1.1.39-1.99 1.03-2.69c-.1-.25-.45-1.27.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.37.2 2.39.1 2.64c.64.7 1.03 1.59 1.03 2.69c0 3.84-2.34 4.68-4.57 4.93c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"
+                          />
+                        </svg>
+                      </span>
+                      <span class="info-social-name">GitHub</span>
+                      <svg
+                        class="info-arrow"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M7 17L17 7M17 7H8M17 7V16"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://linkedin.com/in/jonathan-rosas"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="LinkedIn (opens in new tab)"
+                    >
+                      <span class="info-icon-box" aria-hidden="true">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            fill="currentColor"
+                            d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM8.5 18.5v-9H6V18.5zM7.25 8.5a1.5 1.5 0 1 0 0-3a1.5 1.5 0 0 0 0 3M18 18.5v-5.25c0-2.4-1.3-3.5-3-3.5a2.6 2.6 0 0 0-2.4 1.3v-1.1h-2.5v9H12.5v-5c0-1.1.5-1.75 1.5-1.75s1.5.65 1.5 1.75v5z"
+                          />
+                        </svg>
+                      </span>
+                      <span class="info-social-name">LinkedIn</span>
+                      <svg
+                        class="info-arrow"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M7 17L17 7M17 7H8M17 7V16"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://twitter.com/jonathan_rosas"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Twitter (opens in new tab)"
+                    >
+                      <span class="info-icon-box" aria-hidden="true">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            fill="currentColor"
+                            d="M18.244 2.25h3.308l-7.227 8.26l8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zM17.083 19.77h1.833L7.084 4.126H5.117z"
+                          />
+                        </svg>
+                      </span>
+                      <span class="info-social-name">Twitter</span>
+                      <svg
+                        class="info-arrow"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M7 17L17 7M17 7H8M17 7V16"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="info-card info-reach" v-reveal="440">
+                <div class="info-reach-pattern" aria-hidden="true">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 400 100"
+                    preserveAspectRatio="none"
+                  >
+                    <path
+                      d="M0,30 Q40,15 80,25 T160,30 T240,20 T320,28 T400,22"
+                      stroke="currentColor"
+                      stroke-width="1"
+                      fill="none"
+                      opacity="0.5"
+                    />
+                    <path
+                      d="M0,42 Q50,30 100,38 T200,40 T300,35 T400,40"
+                      stroke="currentColor"
+                      stroke-width="1"
+                      fill="none"
+                      opacity="0.4"
+                    />
+                    <path
+                      d="M0,54 Q60,45 120,52 T240,52 T360,50 T400,52"
+                      stroke="currentColor"
+                      stroke-width="1"
+                      fill="none"
+                      opacity="0.32"
+                    />
+                    <path
+                      d="M0,66 Q40,55 80,62 T160,64 T240,60 T320,64 T400,62"
+                      stroke="currentColor"
+                      stroke-width="1"
+                      fill="none"
+                      opacity="0.24"
+                    />
+                    <path
+                      d="M0,78 Q50,68 100,74 T200,76 T300,72 T400,76"
+                      stroke="currentColor"
+                      stroke-width="1"
+                      fill="none"
+                      opacity="0.16"
+                    />
+                    <path
+                      d="M0,90 Q40,82 80,88 T160,90 T240,86 T320,90 T400,88"
+                      stroke="currentColor"
+                      stroke-width="1"
+                      fill="none"
+                      opacity="0.1"
+                    />
+                  </svg>
+                </div>
+                <div class="info-reach-content">
+                  <h3>Global Reach</h3>
+                  <p>Working remotely from UTC+2</p>
+                </div>
+              </div>
+            </aside>
           </div>
         </div>
       </section>
@@ -1462,7 +1847,52 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, watch } from "vue";
+
+/* ── Reveal-on-scroll directive ──
+   Uso:  v-reveal           (sin delay)
+         v-reveal="100"      (100ms de delay para stagger)
+         v-reveal="200"      etc.
+   Aplica .reveal (oculto) y, al entrar al viewport, .is-visible.
+   Respeta prefers-reduced-motion. Dispara una sola vez. */
+const vReveal = {
+  mounted(el, binding) {
+    if (typeof window === "undefined") return;
+
+    const reduce = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (reduce) {
+      el.classList.add("reveal", "is-visible");
+      return;
+    }
+
+    el.classList.add("reveal");
+
+    const delay = Number(binding.value);
+    if (Number.isFinite(delay) && delay > 0) {
+      el.style.transitionDelay = `${delay}ms`;
+    }
+
+    if (!("IntersectionObserver" in window)) {
+      el.classList.add("is-visible");
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            el.classList.add("is-visible");
+            observer.unobserve(el);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -60px 0px" }
+    );
+    observer.observe(el);
+  },
+};
 
 const track = ref(null);
 
@@ -1475,6 +1905,32 @@ onMounted(() => {
 });
 
 const activeExperience = ref(0);
+
+/* Theme management */
+const theme = ref(
+  document.documentElement.getAttribute("data-theme") || "dark",
+);
+
+function toggleTheme() {
+  theme.value = theme.value === "dark" ? "light" : "dark";
+}
+
+watch(theme, (newTheme) => {
+  document.documentElement.setAttribute("data-theme", newTheme);
+  try {
+    localStorage.setItem("theme", newTheme);
+  } catch (e) {
+    /* localStorage unavailable */
+  }
+  updateMetaThemeColor(newTheme);
+});
+
+function updateMetaThemeColor(currentTheme) {
+  const color = currentTheme === "light" ? "#E9F1FA" : "#101D22";
+  document.querySelectorAll('meta[name="theme-color"]').forEach((meta) => {
+    meta.setAttribute("content", color);
+  });
+}
 </script>
 
 <style scoped>
@@ -1497,10 +1953,16 @@ const activeExperience = ref(0);
   align-items: center;
   width: 100%;
   height: 52px;
-  background: rgba(16, 29, 34, 0.8);
+  background: var(--color-header-bg);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--color-border);
   padding: 0 10px;
   position: relative;
   box-sizing: border-box;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .left-header {
@@ -1525,7 +1987,7 @@ const activeExperience = ref(0);
 }
 
 .center-header a {
-  color: #ffffff;
+  color: var(--color-text);
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -1536,12 +1998,13 @@ const activeExperience = ref(0);
 .right-header {
   display: flex;
   align-items: center;
+  gap: 8px;
 }
 .right-header a {
   display: inline-flex;
   align-items: center;
-  background-color: #13b6ec;
-  color: #101d22;
+  background-color: var(--color-accent);
+  color: var(--color-text-on-accent);
   border: none;
   padding: 8px 20px;
   border-radius: 6px;
@@ -1552,7 +2015,57 @@ const activeExperience = ref(0);
   transition: all 0.3s ease;
 }
 .right-header a:hover {
-  background-color: #0fa0d4;
+  background-color: var(--color-accent-dark);
+  transform: scale(1.05);
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-border-medium);
+  border-radius: 8px;
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.theme-toggle:hover {
+  background-color: var(--color-bg-elevated);
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  transform: rotate(15deg);
+}
+
+.theme-toggle .theme-icon {
+  display: block;
+  flex-shrink: 0;
+}
+.right-header a {
+  display: inline-flex;
+  align-items: center;
+  background-color: #13b6ec;
+  color: var(--color-text-on-accent);
+  border: none;
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.right-header a:hover {
+  background-color: var(--color-accent-dark);
   transform: scale(1.05);
 }
 
@@ -1668,7 +2181,7 @@ const activeExperience = ref(0);
   line-height: 28px;
   display: flex;
   align-items: center;
-  color: #94a3b8;
+  color: var(--color-text-muted);
   flex: none;
   order: 0;
   align-self: stretch;
@@ -1699,7 +2212,7 @@ const activeExperience = ref(0);
   width: 120px;
   height: 40px;
   background: #13b6ec;
-  color: #101d22;
+  color: var(--color-text-on-accent);
   border: none;
   border-radius: 12px;
   font-size: 12px;
@@ -1710,7 +2223,7 @@ const activeExperience = ref(0);
 }
 
 .view-word:hover {
-  background-color: #0fa0d4;
+  background-color: var(--color-accent-dark);
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(19, 182, 236, 0.3);
 }
@@ -1725,21 +2238,22 @@ const activeExperience = ref(0);
   gap: 8px;
   width: 120px;
   height: 40px;
-  background: #101d22;
-  color: #ffffff;
+  background: var(--color-bg-elevated);
+  color: var(--color-text);
   border-radius: 12px;
   font-size: 15px;
   font-weight: 700;
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  border: 1px solid #94a3b8;
+  border: 1px solid var(--color-border-medium);
 }
 
 .contact-me:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--color-bg-elevated);
+  border-color: var(--color-accent);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 24px rgba(19, 182, 236, 0.18);
 }
 
 /* Social icons row */
@@ -1767,21 +2281,21 @@ const activeExperience = ref(0);
   padding: 0;
   width: 30px;
   height: 30px;
-  background: #1e293b;
+  background: var(--color-bg-elevated);
   border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 .github p {
-  color: #94a3b8;
+  color: var(--color-text-muted);
   font-size: 15px;
 }
 
 .icon-github:hover {
-  background: #334155;
+  background: var(--color-surface-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(30, 41, 59, 0.4);
+  box-shadow: 0 6px 16px var(--color-shadow-sm);
 }
 .icon-github:hover svg {
   transform: scale(1.1);
@@ -1803,7 +2317,7 @@ const activeExperience = ref(0);
   padding: 0;
   width: 30px;
   height: 30px;
-  background: #1e293b;
+  background: var(--color-bg-elevated);
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -1811,14 +2325,14 @@ const activeExperience = ref(0);
 }
 
 .linkedin p {
-  color: #94a3b8;
+  color: var(--color-text-muted);
   font-size: 15px;
 }
 
 .icon-linkedin:hover {
-  background: #334155;
+  background: var(--color-surface-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(30, 41, 59, 0.4);
+  box-shadow: 0 6px 16px var(--color-shadow-sm);
 }
 
 .icon-linkedin:hover svg {
@@ -1841,7 +2355,7 @@ const activeExperience = ref(0);
   padding: 0;
   width: 30px;
   height: 30px;
-  background: #1e293b;
+  background: var(--color-bg-elevated);
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -1849,14 +2363,14 @@ const activeExperience = ref(0);
 }
 
 .whatsapp p {
-  color: #94a3b8;
+  color: var(--color-text-muted);
   font-size: 15px;
 }
 
 .icon-whatsapp:hover {
-  background: #334155;
+  background: var(--color-surface-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(30, 41, 59, 0.4);
+  box-shadow: 0 6px 16px var(--color-shadow-sm);
 }
 
 .icon-whatsapp:hover svg {
@@ -1902,7 +2416,7 @@ const activeExperience = ref(0);
   padding: 12px 24px;
   margin: 0;
   background: #13b6ec;
-  color: #101d22;
+  color: var(--color-text-on-accent);
   font-size: 14px;
   font-weight: 700;
   border-radius: 8px;
@@ -2007,7 +2521,7 @@ const activeExperience = ref(0);
 .textsecond h2 {
   font-size: clamp(40px, 4vw, 48px);
   font-weight: 800;
-  color: #ffffff;
+  color: var(--color-text);
   margin: 0;
   overflow-wrap: break-word;
 }
@@ -2018,7 +2532,7 @@ const activeExperience = ref(0);
 
 .textsecond p {
   font-size: 18px;
-  color: #94a3b8;
+  color: var(--color-text-muted);
   line-height: 1.6;
   margin: 8px 0 0;
 }
@@ -2033,7 +2547,7 @@ const activeExperience = ref(0);
 .subtextsecond p {
   font-size: 18px;
   line-height: 1.7;
-  color: #94a3b8;
+  color: var(--color-text-muted);
   margin: 0;
   hyphens: none;
   overflow-wrap: break-word;
@@ -2056,7 +2570,7 @@ const activeExperience = ref(0);
 .technology-text > p {
   font-size: 14px;
   letter-spacing: 2px;
-  color: #94a3b8;
+  color: var(--color-text-muted);
   margin: 0;
 }
 
@@ -2085,13 +2599,14 @@ const activeExperience = ref(0);
   gap: 8px;
   width: 120px;
   height: 140px;
-  background: #1e293b;
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
   border-radius: 16px;
   padding: 16px;
 }
 
 .icons div[class] p {
-  color: #ffffff;
+  color: var(--color-text);
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -2102,6 +2617,7 @@ const activeExperience = ref(0);
 .icons svg {
   width: 40px;
   height: 40px;
+  color: var(--color-text);
 }
 
 .dowloand-cv {
@@ -2119,9 +2635,9 @@ const activeExperience = ref(0);
   gap: 12px;
   width: 311px;
   height: 60px;
-  background: #101d22;
-  color: #ffffff;
-  border: 1px solid #94a3b8;
+  background: var(--color-bg-elevated);
+  color: var(--color-text);
+  border: 1px solid var(--color-border-medium);
   border-radius: 12px;
   font: inherit;
   font-size: 15px;
@@ -2145,9 +2661,9 @@ const activeExperience = ref(0);
   gap: 12px;
   width: 311px;
   height: 60px;
-  background: #101d22;
-  color: #ffffff;
-  border: 1px solid #94a3b8;
+  background: var(--color-bg-elevated);
+  color: var(--color-text);
+  border: 1px solid var(--color-border-medium);
   border-radius: 12px;
   font: inherit;
   font-size: 15px;
@@ -2163,15 +2679,21 @@ const activeExperience = ref(0);
 
 .dowloand-cv a:hover,
 .dowloand-cv button:hover {
-  background: #1e293b;
-  border-color: #13b6ec;
+  background: var(--color-bg-elevated);
+  border-color: var(--color-accent);
   transform: translateY(-2px);
   box-shadow: 0 10px 24px rgba(19, 182, 236, 0.18);
 }
 
+.dowloand-cv a svg,
+.dowloand-cv button svg {
+  flex-shrink: 0;
+  color: inherit;
+}
+
 .dowloand-cv button p {
   margin: 0;
-  color: #ffffff;
+  color: var(--color-text);
   line-height: 1;
 }
 
@@ -2183,10 +2705,10 @@ const activeExperience = ref(0);
   max-width: 460px;
   min-width: 280px;
   padding: 44px 40px;
-  background: rgba(30, 41, 59, 0.32);
-  border: 1px solid rgba(148, 163, 184, 0.16);
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
   border-radius: 18px;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 24px 60px var(--color-shadow-md);
 }
 
 .contact-form {
@@ -2197,7 +2719,7 @@ const activeExperience = ref(0);
 
 .contact-heading h2 {
   margin: 0;
-  color: #ffffff;
+  color: var(--color-text);
   font-size: 25px;
   line-height: 1.15;
   font-weight: 800;
@@ -2205,7 +2727,7 @@ const activeExperience = ref(0);
 
 .contact-heading p {
   margin: 14px 0 0;
-  color: #94a3b8;
+  color: var(--color-text-muted);
   font-size: 17px;
   line-height: 1.45;
 }
@@ -2217,7 +2739,7 @@ const activeExperience = ref(0);
 }
 
 .form-field label {
-  color: #94a3b8;
+  color: var(--color-text-muted);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 1.8px;
@@ -2226,8 +2748,8 @@ const activeExperience = ref(0);
 .form-field input,
 .form-field textarea {
   width: 100%;
-  background: #101d22;
-  color: #ffffff;
+  background: var(--color-bg-elevated);
+  color: var(--color-text);
   border: 1px solid rgba(148, 163, 184, 0.42);
   border-radius: 12px;
   font: inherit;
@@ -2270,7 +2792,7 @@ const activeExperience = ref(0);
   height: 64px;
   padding: 0 24px;
   background: #13b6ec;
-  color: #101d22;
+  color: var(--color-text-on-accent);
   border: none;
   border-radius: 12px;
   font: inherit;
@@ -2284,7 +2806,7 @@ const activeExperience = ref(0);
 }
 
 .send-message:hover {
-  background: #22c7f6;
+  background: var(--color-accent-hover);
   transform: translateY(-2px);
   box-shadow: 0 12px 28px rgba(19, 182, 236, 0.26);
 }
@@ -2293,7 +2815,7 @@ const activeExperience = ref(0);
   width: 100%;
   height: 1px;
   margin: 40px 0;
-  background: rgba(148, 163, 184, 0.16);
+  background: var(--color-border);
 }
 
 .direct-contact {
@@ -2305,7 +2827,7 @@ const activeExperience = ref(0);
 
 .direct-contact > p {
   margin: 0;
-  color: #94a3b8;
+  color: var(--color-text-muted);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 2.2px;
@@ -2316,7 +2838,7 @@ const activeExperience = ref(0);
   align-items: center;
   justify-content: center;
   gap: 10px;
-  color: #ffffff;
+  color: var(--color-text);
   font-size: 15px;
   font-weight: 800;
   line-height: 1;
@@ -2336,6 +2858,7 @@ const activeExperience = ref(0);
   width: 22px;
   height: 22px;
   flex-shrink: 0;
+  color: var(--color-accent);
 }
 
 .third-section {
@@ -2381,7 +2904,7 @@ const activeExperience = ref(0);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 2px;
-  color: #67d8ff;
+  color: var(--color-accent-lighter);
 }
 
 .featured-projects {
@@ -2392,7 +2915,7 @@ const activeExperience = ref(0);
 
 .featured-projects h2 {
   margin: 0;
-  color: #ffffff;
+  color: var(--color-text);
   font-size: 60px;
   line-height: 0.95;
   font-weight: 800;
@@ -2400,13 +2923,13 @@ const activeExperience = ref(0);
 }
 
 .featured-projects h2 span {
-  color: #67d8ff;
+  color: var(--color-accent-lighter);
 }
 
 .featured-projects p {
   max-width: 860px;
   margin: 28px 0 0;
-  color: #94a3b8;
+  color: var(--color-text-muted);
   font-size: 22px;
   line-height: 1.45;
   font-weight: 500;
@@ -2427,7 +2950,7 @@ const activeExperience = ref(0);
 .project-card {
   display: flex;
   flex-direction: column;
-  background: rgba(30, 41, 59, 0.32);
+  background: var(--color-card-bg);
   border: none;
   border-radius: 18px;
   overflow: hidden;
@@ -2448,7 +2971,7 @@ const activeExperience = ref(0);
   z-index: 5;
   padding: 5px 14px;
   background: #13b6ec;
-  color: #101d22;
+  color: var(--color-text-on-accent);
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 1.6px;
@@ -2484,7 +3007,7 @@ const activeExperience = ref(0);
 
 .project-content h3 {
   margin: 0;
-  color: #ffffff;
+  color: var(--color-text);
   font-size: 22px;
   font-weight: 800;
   line-height: 1.2;
@@ -2501,7 +3024,7 @@ const activeExperience = ref(0);
   background: rgba(148, 163, 184, 0.1);
   border: 1px solid rgba(148, 163, 184, 0.18);
   border-radius: 9999px;
-  color: #94a3b8;
+  color: var(--color-text-muted);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.3px;
@@ -2509,7 +3032,7 @@ const activeExperience = ref(0);
 
 .project-content p {
   margin: 0;
-  color: #94a3b8;
+  color: var(--color-text-muted);
   font-size: 14px;
   line-height: 1.6;
   flex: 1;
@@ -2534,11 +3057,12 @@ const activeExperience = ref(0);
 }
 
 .project-footer a:hover {
-  color: #67d8ff;
+  color: var(--color-accent-lighter);
 }
 
 .project-footer a svg {
   flex-shrink: 0;
+  color: inherit;
   transition: transform 0.25s ease;
 }
 
@@ -2584,7 +3108,7 @@ const activeExperience = ref(0);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 2px;
-  color: #67d8ff;
+  color: var(--color-accent-lighter);
 }
 
 .featured-experience {
@@ -2595,7 +3119,7 @@ const activeExperience = ref(0);
 
 .featured-experience h2 {
   margin: 0;
-  color: #ffffff;
+  color: var(--color-text);
   font-size: 60px;
   line-height: 0.95;
   font-weight: 800;
@@ -2603,13 +3127,13 @@ const activeExperience = ref(0);
 }
 
 .featured-experience h2 span {
-  color: #67d8ff;
+  color: var(--color-accent-lighter);
 }
 
 .featured-experience p {
   max-width: 860px;
   margin: 28px 0 0;
-  color: #94a3b8;
+  color: var(--color-text-muted);
   font-size: 22px;
   line-height: 1.45;
   font-weight: 500;
@@ -2681,10 +3205,10 @@ const activeExperience = ref(0);
 }
 
 .experience-content {
-  background: rgba(30, 41, 59, 0.32);
-  border: 1px solid rgba(148, 163, 184, 0.16);
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
   border-radius: 18px;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 24px 60px var(--color-shadow-md);
   padding: 26px;
   box-sizing: border-box;
   width: 100%;
@@ -2708,7 +3232,7 @@ const activeExperience = ref(0);
 
 .company-heading h4 {
   margin: 0;
-  color: #ffffff;
+  color: var(--color-text);
   font-size: 24px;
   line-height: 1.2;
   font-weight: 800;
@@ -2747,7 +3271,7 @@ const activeExperience = ref(0);
 
 .experience-labels h3 {
   margin: 0;
-  color: #ffffff;
+  color: var(--color-text);
   font-size: 22px;
   line-height: 1.2;
   font-weight: 800;
@@ -2755,7 +3279,7 @@ const activeExperience = ref(0);
 
 .experience-content p {
   margin: 0;
-  color: #94a3b8;
+  color: var(--color-text-muted);
   font-size: 16px;
   line-height: 1.6;
 }
@@ -2767,7 +3291,7 @@ const activeExperience = ref(0);
   justify-self: center;
   width: 16px;
   height: 16px;
-  background: #1e293b;
+  background: var(--color-bg-elevated);
   border: 2px solid rgba(148, 163, 184, 0.45);
   border-radius: 50%;
   z-index: 2;
@@ -2788,8 +3312,8 @@ const activeExperience = ref(0);
 .cta-card {
   width: 100%;
   margin-top: 60px;
-  background: rgba(30, 41, 59, 0.32);
-  border: 1px solid rgba(148, 163, 184, 0.16);
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
   border-radius: 24px;
   padding: 48px 40px;
   box-sizing: border-box;
@@ -2802,7 +3326,7 @@ const activeExperience = ref(0);
 
 .cta-card h2 {
   margin: 0;
-  color: #ffffff;
+  color: var(--color-text);
   font-size: 24px;
   line-height: 1.2;
   font-weight: 800;
@@ -2812,7 +3336,7 @@ const activeExperience = ref(0);
 
 .cta-card p {
   margin: 0;
-  color: #94a3b8;
+  color: var(--color-text-muted);
   font-size: 15px;
   line-height: 1.5;
   max-width: 560px;
@@ -2834,7 +3358,7 @@ const activeExperience = ref(0);
   height: 44px;
   padding: 0 24px;
   background: #13b6ec;
-  color: #101d22;
+  color: var(--color-text-on-accent);
   border: none;
   border-radius: 12px;
   font: inherit;
@@ -2849,7 +3373,7 @@ const activeExperience = ref(0);
 }
 
 .cta-primary:hover {
-  background: #22c7f6;
+  background: var(--color-accent-hover);
   transform: translateY(-2px);
   box-shadow: 0 12px 28px rgba(19, 182, 236, 0.26);
 }
@@ -2862,8 +3386,8 @@ const activeExperience = ref(0);
   height: 44px;
   padding: 0 24px;
   background: transparent;
-  color: #ffffff;
-  border: 1px solid #94a3b8;
+  color: var(--color-text);
+  border: 1px solid var(--color-border-medium);
   border-radius: 12px;
   font: inherit;
   font-size: 14px;
@@ -2877,14 +3401,15 @@ const activeExperience = ref(0);
 }
 
 .cta-secondary:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: #13b6ec;
+  background: var(--color-bg-elevated);
+  border-color: var(--color-accent);
   transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(19, 182, 236, 0.18);
 }
 
 .cta-card h2 {
   margin: 0;
-  color: #ffffff;
+  color: var(--color-text);
   font-size: 25px;
   line-height: 1.2;
   font-weight: 800;
@@ -2894,7 +3419,7 @@ const activeExperience = ref(0);
 
 .cta-card p {
   margin: 0;
-  color: #94a3b8;
+  color: var(--color-text-muted);
   font-size: 17px;
   line-height: 1.5;
   max-width: 560px;
@@ -2916,7 +3441,7 @@ const activeExperience = ref(0);
   height: 52px;
   padding: 0 24px;
   background: #13b6ec;
-  color: #101d22;
+  color: var(--color-text-on-accent);
   border: none;
   border-radius: 12px;
   font: inherit;
@@ -2930,7 +3455,7 @@ const activeExperience = ref(0);
 }
 
 .cta-primary:hover {
-  background: #22c7f6;
+  background: var(--color-accent-hover);
   transform: translateY(-2px);
   box-shadow: 0 12px 28px rgba(19, 182, 236, 0.26);
 }
@@ -2943,8 +3468,8 @@ const activeExperience = ref(0);
   height: 52px;
   padding: 0 24px;
   background: transparent;
-  color: #ffffff;
-  border: 1px solid #94a3b8;
+  color: var(--color-text);
+  border: 1px solid var(--color-border-medium);
   border-radius: 12px;
   font: inherit;
   font-size: 15px;
@@ -2957,9 +3482,448 @@ const activeExperience = ref(0);
 }
 
 .cta-secondary:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: #13b6ec;
+  background: var(--color-bg-elevated);
+  border-color: var(--color-accent);
   transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(19, 182, 236, 0.18);
+}
+
+.seccion-contact {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 100px 40px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(
+      141.42% 141.42% at 0% 0%,
+      rgba(19, 182, 236, 0.18) 0%,
+      rgba(19, 182, 236, 0) 50%
+    ),
+    radial-gradient(
+      141.42% 141.42% at 100% 100%,
+      rgba(19, 182, 236, 0.1) 0%,
+      rgba(19, 182, 236, 0) 50%
+    );
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Decorative ambient orbs for depth */
+.seccion-contact::before,
+.seccion-contact::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(80px);
+}
+
+.seccion-contact::before {
+  top: 20%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  opacity: 0.6;
+}
+
+.seccion-contact::after {
+  bottom: 10%;
+  right: -5%;
+  width: 400px;
+  height: 400px;
+  background: var(--color-accent-soft);
+  opacity: 0.4;
+}
+
+.contact-container {
+  width: 100%;
+  max-width: 1280px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Header ── */
+.contact-header {
+  max-width: 760px;
+  margin: 0 0 56px;
+}
+
+.contact-header h2 {
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -2.5px;
+  margin: 0 0 20px;
+  color: var(--color-text);
+}
+
+.contact-highlight {
+  color: var(--color-accent);
+  display: inline;
+}
+
+.contact-header p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin: 0;
+  max-width: 620px;
+}
+
+/* ── Grid layout ── */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* ── Form card ── */
+.contact-form-card {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: border-color 0.3s ease;
+}
+
+.contact-form-card:focus-within {
+  border-color: var(--color-accent-border);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.form-field label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 16px 18px;
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border-medium);
+  border-radius: 12px;
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  outline: none;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: var(--color-text-muted);
+  opacity: 0.65;
+  font-weight: 400;
+}
+
+.form-field input:hover,
+.form-field textarea:hover {
+  border-color: var(--color-text-muted);
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-soft);
+  background: var(--color-bg-elevated);
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 160px;
+  line-height: 1.5;
+}
+
+.contact-submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  align-self: flex-start;
+  margin-top: 8px;
+  padding: 0 32px;
+  height: 56px;
+  width: auto;
+  background: var(--color-accent);
+  color: var(--color-text-on-accent);
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.contact-submit:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(19, 182, 236, 0.28);
+}
+
+.contact-submit:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.contact-submit svg {
+  transition: transform 0.3s ease;
+}
+
+.contact-submit:hover svg {
+  transform: translateX(4px);
+}
+
+/* ── Info column ── */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+.info-card {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 28px;
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    background-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.info-card:hover {
+  border-color: var(--color-accent-border);
+}
+
+.info-card h3 {
+  margin: 0 0 18px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  color: var(--color-accent);
+  text-transform: uppercase;
+}
+
+/* ── Direct email card ── */
+.info-direct-link {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  color: var(--color-text);
+  padding: 10px 12px;
+  margin: -10px -12px;
+  border-radius: 14px;
+  transition: background-color 0.3s ease;
+  min-width: 0;
+}
+
+.info-direct-link:hover {
+  background: var(--color-accent-soft);
+}
+
+.info-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  background: var(--color-accent-soft);
+  border: 1px solid var(--color-accent-border);
+  border-radius: 12px;
+  color: var(--color-accent);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.info-direct-link:hover .info-icon-box {
+  background: var(--color-accent);
+  color: var(--color-text-on-accent);
+}
+
+.info-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  flex: 1;
+}
+
+.info-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+.info-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── Social card ── */
+.info-social-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.info-social-list li {
+  margin: 0;
+}
+
+.info-social-list a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 12px;
+  margin: 0 -12px;
+  text-decoration: none;
+  color: var(--color-text);
+  border-radius: 12px;
+  transition: background-color 0.3s ease;
+  min-width: 0;
+}
+
+.info-social-list a:hover {
+  background: var(--color-accent-soft);
+}
+
+.info-social-list a:hover .info-icon-box {
+  background: var(--color-accent);
+  color: var(--color-text-on-accent);
+}
+
+.info-social-list .info-icon-box {
+  width: 40px;
+  height: 40px;
+}
+
+.info-social-name {
+  font-size: 15px;
+  font-weight: 700;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.info-arrow {
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.info-social-list a:hover .info-arrow,
+.info-direct-link:hover .info-arrow {
+  color: var(--color-accent);
+  transform: translate(2px, -2px);
+}
+
+/* ── Global reach card ── */
+.info-reach {
+  padding: 0;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.info-reach-pattern {
+  position: relative;
+  width: 100%;
+  height: 90px;
+  pointer-events: none;
+  overflow: hidden;
+  color: var(--color-accent);
+}
+
+.info-reach-pattern::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--color-card-bg) 100%
+  );
+  pointer-events: none;
+}
+
+.info-reach-pattern svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.info-reach-content {
+  padding: 0 28px 26px;
+  position: relative;
+  z-index: 1;
+}
+
+.info-reach-content h3 {
+  margin: 0 0 6px;
+}
+
+.info-reach-content p {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.1px;
 }
 
 @keyframes scrollTech {
@@ -2986,6 +3950,32 @@ const activeExperience = ref(0);
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* ── Reveal-on-scroll (v-reveal directive) ──
+   Inicia oculto; al entrar al viewport se le agrega
+   .is-visible y la transición lo muestra. */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
 
@@ -3095,6 +4085,26 @@ const activeExperience = ref(0);
 
   .experience-timeline {
     max-width: 900px;
+  }
+
+  /* ── Contact section ── */
+  .seccion-contact {
+    padding: 80px 32px 60px;
+    min-height: auto;
+  }
+
+  .contact-header h2 {
+    font-size: 52px;
+    letter-spacing: -2px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 20px;
+  }
+
+  .contact-form-card {
+    padding: 40px;
   }
 }
 
@@ -3362,6 +4372,51 @@ const activeExperience = ref(0);
     width: 100%;
     min-width: 0;
   }
+
+  /* ── Contact section ── */
+  .seccion-contact {
+    padding: 60px 20px 40px;
+  }
+
+  .contact-header {
+    margin-bottom: 36px;
+  }
+
+  .contact-header h2 {
+    font-size: 40px;
+    letter-spacing: -1.5px;
+  }
+
+  .contact-header p {
+    font-size: 16px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .contact-form-card {
+    padding: 32px 24px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .contact-submit {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .info-card {
+    padding: 24px;
+  }
+
+  .info-value {
+    font-size: 14px;
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -3515,6 +4570,69 @@ const activeExperience = ref(0);
   }
 
   .cta-card p {
+    font-size: 13px;
+  }
+
+  /* ── Contact section ── */
+  .seccion-contact {
+    padding: 48px 16px 32px;
+  }
+
+  .contact-header {
+    margin-bottom: 28px;
+  }
+
+  .contact-header h2 {
+    font-size: 32px;
+    letter-spacing: -1.2px;
+  }
+
+  .contact-header p {
+    font-size: 15px;
+  }
+
+  .contact-form-card {
+    padding: 24px 20px;
+    border-radius: 16px;
+  }
+
+  .form-field input,
+  .form-field textarea {
+    padding: 14px 16px;
+    font-size: 14px;
+  }
+
+  .form-field textarea {
+    min-height: 120px;
+  }
+
+  .contact-submit {
+    height: 52px;
+    font-size: 14px;
+  }
+
+  .info-card {
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .info-direct-link,
+  .info-social-list a {
+    margin: 0 -8px;
+    padding: 8px;
+  }
+
+  .info-icon-box {
+    width: 40px;
+    height: 40px;
+  }
+
+  .info-social-list .info-icon-box {
+    width: 36px;
+    height: 36px;
+  }
+
+  .info-value {
     font-size: 13px;
   }
 }

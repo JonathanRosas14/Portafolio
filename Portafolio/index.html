@@ -4,9 +4,23 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#101D22" />
-    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#101D22" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#E9F1FA" media="(prefers-color-scheme: light)" />
+    <meta name="color-scheme" content="dark light" />
     <meta name="format-detection" content="telephone=no" />
+
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme');
+          var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+          var theme = stored || (prefersLight ? 'light' : 'dark');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
 
     <title>Jonathan.Dev | Full-Stack Developer & UI Designer</title>
     <meta name="description" content="Portfolio of Jonathan, a full-stack developer and UI designer specializing in high-performance web applications, Vue.js, and modern UI. Browse projects and get in touch." />

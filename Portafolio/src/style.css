@@ -8,7 +8,44 @@
   --color-surface-hover: #334155;
   --color-accent-soft: rgba(19, 182, 236, 0.1);
   --color-accent-border: rgba(19, 182, 236, 0.2);
+
+  /* Variables extendidas (mismos valores que los hex hardcoded del tema oscuro) */
+  --color-bg-elevated: #1E293B;
+  --color-card-bg: rgba(30, 41, 59, 0.32);
+  --color-accent-hover: #22c7f6;
+  --color-accent-lighter: #67d8ff;
+  --color-border: rgba(148, 163, 184, 0.16);
+  --color-text-on-accent: #101d22;
+  --color-shadow-sm: rgba(30, 41, 59, 0.4);
+  --color-shadow-md: rgba(0, 0, 0, 0.22);
+  --color-border-medium: #94a3b8;
+  --color-header-bg: rgba(16, 29, 34, 0.8);
+
   --font-body: 'Manrope', sans-serif;
+}
+
+/* === TEMA CLARO === */
+[data-theme="light"] {
+  --color-bg: #E9F1FA;
+  --color-accent: #00ABE4;
+  --color-accent-dark: #0089B5;
+  --color-text: #1A2438;
+  --color-text-muted: #5A6A7E;
+  --color-surface: #FFFFFF;
+  --color-surface-hover: #F4F8FC;
+  --color-accent-soft: rgba(0, 171, 228, 0.1);
+  --color-accent-border: rgba(0, 171, 228, 0.22);
+
+  --color-bg-elevated: #FFFFFF;
+  --color-card-bg: #FFFFFF;
+  --color-accent-hover: #0089B5;
+  --color-accent-lighter: #0089B5;
+  --color-border: #E0E9F2;
+  --color-text-on-accent: #FFFFFF;
+  --color-shadow-sm: rgba(26, 36, 56, 0.16);
+  --color-shadow-md: rgba(26, 36, 56, 0.08);
+  --color-border-medium: #E0E9F2;
+  --color-header-bg: rgba(255, 255, 255, 0.85);
 }
 
 html {
@@ -19,6 +56,10 @@ body {
   background-color: var(--color-bg);
   font-family: var(--font-body);
   margin: 0;
+  color: var(--color-text);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 * {
