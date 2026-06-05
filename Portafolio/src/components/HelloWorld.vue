@@ -28,7 +28,13 @@
       </nav>
       <!-- CTA -->
       <div class="right-header">
-        <button>Curriculum Vitae</button>
+        <a
+          href="/curriculum-vitae.pdf"
+          download
+          aria-label="Download Curriculum Vitae PDF"
+        >
+          Curriculum Vitae
+        </a>
       </div>
     </header>
     <main class="layout-main" id="main-content">
@@ -60,8 +66,8 @@
 
           <!-- Botones CTA -->
           <div class="button-main">
-            <button class="view-word" aria-label="View Word">
-              View Word
+            <a class="view-word" href="#projects" aria-label="View my work">
+              View Work
               <svg
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
@@ -74,8 +80,8 @@
                   d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5L16 11z"
                 />
               </svg>
-            </button>
-            <button class="contact-me">Contact Me</button>
+            </a>
+            <a class="contact-me" href="#contact" aria-label="Go to contact form">Contact Me</a>
           </div>
 
           <!-- Redes sociales -->
@@ -147,7 +153,7 @@
         </div>
       </section>
       <!-- ═══ SECOND SECTION ═══ -->
-      <section class="second-main" id="experience">
+      <section class="second-main">
         <div class="second-left-main">
           <!-- 1ra sección: Imagen + info -->
           <div class="one_seccion">
@@ -158,12 +164,13 @@
                 alt="Jonathan full-stack developer portrait"
                 loading="lazy"
               />
-              <div class="iconsecurity">
+              <div class="iconsecurity" aria-hidden="true">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
                   height="20"
                   viewBox="0 0 24 24"
+                  aria-hidden="true"
                 >
                   <g fill="none">
                     <path
@@ -925,12 +932,13 @@
 
           <!-- 4ta sección Boton de descarga curriculum-->
           <div class="dowloand-cv">
-            <button>
+            <a href="/curriculum-vitae.pdf" download aria-label="Download Curriculum Vitae PDF">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
                 height="20"
                 viewBox="0 0 24 24"
+                aria-hidden="true"
               >
                 <path
                   fill="#FFFFFF"
@@ -938,7 +946,7 @@
                 />
               </svg>
               <p>Download Curriculum Vitae</p>
-            </button>
+            </a>
           </div>
         </div>
         <div class="second-right-main" id="contact">
@@ -1036,7 +1044,7 @@
         </div>
       </section>
       <!-- ═══ THIRD SECTION - PROJECTS ═══ -->
-      <section class="third-section">
+      <section class="third-section" id="projects">
         <div class="overlay-projects">
           <span class="dot-projects"></span>
           <p>PORTAFOLIO 2026</p>
@@ -1051,77 +1059,402 @@
         </div>
         <!-- ═══ PROJECTS GRID ═══ -->
         <div class="projects-grid">
-          <article class="project-card" v-for="(project, pIdx) in projects" :key="pIdx">
+          <!-- E-Commerce Dashboard -->
+          <article class="project-card">
             <div class="project-media">
-              <span class="project-category" :style="{ background: project.accent }">{{ project.category }}</span>
-
-              <div class="project-slider" :style="{ borderBottom: '3px solid ' + project.accent }">
-                <div
-                  v-for="(img, i) in project.images"
-                  :key="i"
-                  class="project-slide"
-                  :class="{ active: project.current === i }"
-                >
-                  <div v-if="!img.real" class="project-slide-placeholder" :style="{ background: project.accent + '22' }">
-                    <span>{{ project.title }} — screenshot {{ i + 1 }}</span>
-                  </div>
-                  <img v-else :src="img.src" :alt="project.title + ' screenshot ' + (i + 1)" />
-                </div>
-
-                <button
-                  type="button"
-                  class="slider-btn slider-prev"
-                  aria-label="Previous image"
-                  @click.stop="prevImage(pIdx)"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="white" d="M15.41 7.41L14 6l-6 6l6 6l1.41-1.41L10.83 12z"/></svg>
-                </button>
-
-                <button
-                  type="button"
-                  class="slider-btn slider-next"
-                  aria-label="Next image"
-                  @click.stop="nextImage(pIdx)"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="white" d="M8.59 16.59L10 18l6-6l-6-6l-1.41 1.41L13.17 12z"/></svg>
-                </button>
-
-                <div class="slider-dots">
-                  <span
-                    v-for="(img, i) in project.images"
-                    :key="i"
-                    class="slider-dot"
-                    :class="{ active: project.current === i }"
-                    @click="project.current = i"
-                  ></span>
-                </div>
+              <span class="project-category" style="background: #13b6ec"
+                >WEB APPLICATION</span
+              >
+              <div
+                class="project-image-placeholder"
+                style="background: #13b6ec22"
+              >
+                <span>E-Commerce Dashboard — screenshot</span>
               </div>
             </div>
-
             <div class="project-content">
-              <h3>{{ project.title }}</h3>
-
+              <h3>E-Commerce Dashboard</h3>
               <div class="project-tags">
-                <span v-for="tag in project.tags" :key="tag">{{ tag }}</span>
+                <span>Next.js</span>
+                <span>TypeScript</span>
+                <span>Chart.js</span>
               </div>
-
-              <p>{{ project.description }}</p>
-
+              <p>
+                Engineered a high-throughput merchant interface to resolve
+                real-time synchronization issues across global storefronts,
+                resulting in a 40% reduction in latency.
+              </p>
               <div class="project-footer">
-                <a :href="project.link" :aria-label="'View demo for ' + project.title">
+                <a href="#" rel="nofollow" aria-label="View demo for E-Commerce Dashboard">
                   View Demo
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="#13B6EC" d="M6.4 18L5 16.6L14.6 7H6V5h12v12h-2V8.4z"/></svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill="#13B6EC"
+                      d="M6.4 18L5 16.6L14.6 7H6V5h12v12h-2V8.4z"
+                    />
+                  </svg>
                 </a>
-
                 <span class="project-icon" aria-hidden="true">
-                  <!-- SVG aquí luego -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill="#FFFFFF"
+                      d="m8 18l-6-6l6-6l1.425 1.425l-4.6 4.6L9.4 16.6zm8 0l-1.425-1.425l4.6-4.6L14.6 7.4L16 6l6 6z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <!-- NeoVault Mobile -->
+          <article class="project-card">
+            <div class="project-media">
+              <span class="project-category" style="background: #6366f1"
+                >MOBILE</span
+              >
+              <div
+                class="project-image-placeholder"
+                style="background: #6366f122"
+              >
+                <span>NeoVault Mobile — screenshot</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3>NeoVault Mobile</h3>
+              <div class="project-tags">
+                <span>React Native</span>
+                <span>Firebase</span>
+                <span>Stripe</span>
+              </div>
+              <p>
+                Developed a secure, end-to-end encrypted mobile wallet for
+                digital assets. Integrated biometrics and multi-signature
+                authorization protocols.
+              </p>
+              <div class="project-footer">
+                <a href="#" rel="nofollow" aria-label="View demo for NeoVault Mobile">
+                  View Demo
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill="#13B6EC"
+                      d="M6.4 18L5 16.6L14.6 7H6V5h12v12h-2V8.4z"
+                    />
+                  </svg>
+                </a>
+                <span class="project-icon" aria-hidden="true">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill="#FFFFFF"
+                      d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h16q.825 0 1.413.588T22 6v12q0 .825-.587 1.413T20 20zm0-2h16V8H4zm3.5-1l-1.4-1.4L8.675 13l-2.6-2.6L7.5 9l4 4zm4.5 0v-2h6v2z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Lumina AI Hub -->
+          <article class="project-card">
+            <div class="project-media">
+              <span class="project-category" style="background: #06b6d4"
+                >AI &amp; UI/UX</span
+              >
+              <div
+                class="project-image-placeholder"
+                style="background: #06b6d422"
+              >
+                <span>Lumina AI Hub — screenshot</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3>Lumina AI Hub</h3>
+              <div class="project-tags">
+                <span>Python</span>
+                <span>OpenAI</span>
+                <span>FastAPI</span>
+              </div>
+              <p>
+                Designed and built an AI-driven CMS that automates semantic
+                tagging and content generation, increasing editorial output by
+                200%.
+              </p>
+              <div class="project-footer">
+                <a href="#" rel="nofollow" aria-label="View demo for Lumina AI Hub">
+                  View Demo
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill="#13B6EC"
+                      d="M6.4 18L5 16.6L14.6 7H6V5h12v12h-2V8.4z"
+                    />
+                  </svg>
+                </a>
+                <span class="project-icon" aria-hidden="true">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 32 32"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill="#FFFFFF"
+                      d="M24.292 15.547a3.93 3.93 0 0 0 4.115-3.145a2.57 2.57 0 0 0-2.161-1.177c-2.272-.052-3.491 2.651-1.953 4.323zm-9.177-10.85l5.359-3.104L18.766.63l-7.391 4.281l.589.328l1.119.629l2.032-1.176zm6.046-3.39c.089.027.161.1.188.188l2.484 7.593a.285.285 0 0 1-.125.344a5.06 5.06 0 0 0-2.317 5.693a5.066 5.066 0 0 0 5.401 3.703a.3.3 0 0 1 .307.203l2.563 7.803a.3.3 0 0 1-.125.344l-7.859 4.771a.3.3 0 0 1-.131.036a.26.26 0 0 1-.203-.041l-2.765-1.797a.3.3 0 0 1-.109-.129l-5.396-12.896l-8.219 4.875c-.016.011-.037.021-.052.032a.3.3 0 0 1-.261-.021l-1.859-1.093a.283.283 0 0 1-.115-.381l7.953-15.749a.27.27 0 0 1 .135-.131L18.615.045a.29.29 0 0 1 .292-.005zm-8.322 5.1l-1.932-1.089l-7.693 15.229l1.396.823l6.631-9.015a.28.28 0 0 1 .271-.12a.29.29 0 0 1 .235.177l7.228 17.296l1.933 1.251l-8.063-24.552zm13.406 10.557c-2.256 0-3.787-2.292-2.923-4.376c.86-2.083 3.563-2.619 5.156-1.025c.595.593.928 1.396.928 2.235a3.16 3.16 0 0 1-3.161 3.167z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Developer Portfolio -->
+          <article class="project-card">
+            <div class="project-media">
+              <span class="project-category" style="background: #13b6ec"
+                >WEB APPLICATION</span
+              >
+              <div
+                class="project-image-placeholder"
+                style="background: #13b6ec22"
+              >
+                <span>Developer Portfolio — screenshot</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3>Developer Portfolio</h3>
+              <div class="project-tags">
+                <span>Vue.js</span>
+                <span>Vite</span>
+                <span>CSS</span>
+              </div>
+              <p>
+                Built a responsive personal portfolio focused on performance,
+                accessibility, technical storytelling, and polished visual
+                presentation across desktop, tablet, and mobile devices.
+              </p>
+              <div class="project-footer">
+                <a href="#" rel="nofollow" aria-label="View demo for Developer Portfolio">
+                  View Demo
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill="#13B6EC"
+                      d="M6.4 18L5 16.6L14.6 7H6V5h12v12h-2V8.4z"
+                    />
+                  </svg>
+                </a>
+                <span class="project-icon" aria-hidden="true">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="19.721059972105998"
+                    viewBox="0 0 717 707"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill="#FFFFFF"
+                      d="M0 342v-1C9 225 51 138 124 83C196 27 274 0 359 0c89-1 172 29 246 89c75 59 112 147 112 261v7c0 115-37 201-112 260c-75 60-158 90-247 90h-4c-87-1-167-31-241-91C39 557 1 466 0 342m337-157V27h-24c-5 6-9 13-13 19s-8 12-12 19c-4 6-9 14-12 20c-4 6-7 12-10 19c-6 10-11 20-15 29c-5 9-9 18-12 26c6 4 13 9 21 12c9 3 18 6 27 8c10 2 19 3 27 4c9 1 17 2 23 2m42-158v157c5 0 11 1 17 0c6 0 13-1 19-2c11-2 24-5 34-8c11-4 21-9 28-15c-12-29-25-52-38-74s-28-41-44-57v-1zm-108 9v-1c-7 3-14 8-22 11c-7 3-16 7-23 11q-21 10.5-42 24c-13 9-26 19-37 29c4 4 9 8 13 11s9 7 14 11c4 2 9 5 14 9c5 3 11 7 17 11c8-18 16-37 26-54c10-18 21-35 32-50c1-2 2-4 4-6c1-1 2-4 4-6m306 74v-1c-25-19-47-35-69-45s-44-20-64-28c16 16 30 36 39 55c10 20 20 41 28 61c4-2 9-4 15-8c5-3 12-6 18-9c6-4 11-8 17-12c6-5 12-9 16-13m-17 223h115c0-37-8-72-23-108c-14-35-34-64-59-89v-1c-5 8-12 15-19 20c-8 5-15 9-23 13c-5 3-10 7-15 9c-5 3-12 5-17 8c4 8 8 17 12 25c3 9 8 19 10 28c6 16 10 33 14 50c3 15 5 31 5 45M198 185v-1c-8-4-17-7-24-11c-7-5-14-10-20-14c-6-3-12-7-17-11s-9-8-13-12c-26 25-45 53-57 86c-13 33-22 70-26 110h123c0-28 4-55 11-82c6-28 15-49 23-65m139 147V217c-8 1-18 1-27 0c-10-1-20-4-29-7c-8-2-18-4-26-7c-9-2-18-6-25-10c-6 10-11 22-15 35c-5 12-8 25-11 37c-2 12-3 25-4 36s-2 22-2 31zm42-113v113h148c0-6 0-13-1-21c-2-7-3-16-4-24c-3-12-6-25-10-37c-4-11-8-22-13-31c-2-5-4-11-6-15c-3-5-6-8-8-11c-11 8-26 13-44 17c-17 4-37 8-55 9zM164 365H41c0 17 3 36 8 59c5 24 15 46 26 70c5 12 11 24 17 36c7 11 15 23 23 34c6-4 12-7 17-10c6-3 13-7 19-10c7-3 14-6 22-10c7-3 16-7 25-11c-8-25-17-49-23-76c-7-26-11-52-11-81zm173 117V365H198c0 8 1 20 3 32c1 12 4 25 6 38c4 14 7 28 11 40s8 22 12 31c18-7 36-12 48-15c13-4 25-7 37-8h11c4-1 8-1 11-1m42-117v116c7 1 15 2 23 3c9 1 20 3 29 5l15 3c5 2 11 3 16 4c6 2 12 3 18 5c5 2 10 3 14 5c13-33 21-60 26-83c5-22 7-41 7-57v-1zm296 1v-1H560v6c-1 19-4 41-8 64c-4 22-13 48-25 80c16 8 31 16 43 24s23 17 31 25c17-17 32-40 45-70c13-29 22-59 27-91c1-6 1-12 2-18zM337 670V514c-25 4-46 9-62 13s-28 8-36 12c6 15 12 28 18 40c6 11 13 23 19 33c2 4 6 8 9 13c3 4 5 9 8 13c3 5 6 11 9 17c4 5 7 11 11 15zm42 0h23c9-7 18-17 25-28c8-11 17-24 23-35c7-13 14-25 20-37s11-23 15-31c-11-4-26-8-41-12s-36-8-65-12zm198-82v-1c-2-3-6-7-9-10s-8-7-13-10q-6-4.5-15-9c-9-4.5-14-7-21-11c-4 8-11 22-21 41c-9 19-25 42-45 67c25-4 47-13 67-25c22-11 41-26 57-42m-372-32v-1c-7 4-18 9-29 14c-12 5-25 11-37 19c7 6 14 12 20 16c6 5 13 9 19 13c11 7 24 14 37 20s29 12 49 18c-7-8-12-18-17-26s-11-16-16-24s-9-17-13-25c-5-8-9-16-13-24"
+                    />
+                  </svg>
                 </span>
               </div>
             </div>
           </article>
         </div>
       </section>
-      <div></div>
+      <!-- ═══ FOURTH SECTION - EXPERIENCE ═══ -->
+      <section class="fourth-section" id="experience">
+        <div class="overlay-experience">
+          <p>CAREER ODYSSEY</p>
+        </div>
+        <div class="featured-experience">
+          <h2>Professional <span>Experience</span></h2>
+          <p>
+            A journey through building robust systems, crafting fluid user
+            experiences, and solving complex architectural puzzles.
+          </p>
+        </div>
+
+        <div class="experience-timeline">
+          <article
+            class="experience-card"
+            :class="{ active: activeExperience === 0 }"
+            role="button"
+            tabindex="0"
+            @click="activeExperience = 0"
+            @keydown.enter="activeExperience = 0"
+            @keydown.space.prevent="activeExperience = 0"
+          >
+            <div class="experience-content">
+              <div class="company-heading">
+                <span class="company-logo-slot" aria-hidden="true">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="30"
+                    height="30"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill="#13b6ec"
+                      d="M18 13h1c.55 0 1 .45 1 1.01v2.98c0 .56-.45 1.01-1 1.01h-4c-.55 0-1-.45-1-1.01v-2.98c0-.56.45-1.01 1-1.01h1v-2h-5v2h1c.55 0 1 .45 1 1.01v2.98c0 .56-.45 1.01-1 1.01H8c-.55 0-1-.45-1-1.01v-2.98c0-.56.45-1.01 1-1.01h1v-2H4v2h1c.55 0 1 .45 1 1.01v2.98C6 17.55 5.55 18 5 18H1c-.55 0-1-.45-1-1.01v-2.98C0 13.45.45 13 1 13h1v-2c0-1.1.9-2 2-2h5V7H8c-.55 0-1-.45-1-1.01V3.01C7 2.45 7.45 2 8 2h4c.55 0 1 .45 1 1.01v2.98C13 6.55 12.55 7 12 7h-1v2h5c1.1 0 2 .9 2 2z"
+                    />
+                  </svg>
+                </span>
+                <h4>Company Name</h4>
+              </div>
+              <p>
+                Building scalable web applications, improving frontend
+                performance, and designing user-focused interfaces.
+              </p>
+              <div class="experience-techs" aria-label="Technologies used">
+                <span>Vue.js</span>
+                <span>Node.js</span>
+                <span>TypeScript</span>
+                <span>PostgreSQL</span>
+              </div>
+            </div>
+            <div class="experience-labels">
+              <span class="experience-date">2024 - Present</span>
+              <h3>Full-Stack Developer</h3>
+            </div>
+            <span class="timeline-point" aria-hidden="true"></span>
+          </article>
+
+          <article
+            class="experience-card"
+            :class="{ active: activeExperience === 1 }"
+            role="button"
+            tabindex="0"
+            @click="activeExperience = 1"
+            @keydown.enter="activeExperience = 1"
+            @keydown.space.prevent="activeExperience = 1"
+          >
+            <div class="experience-content">
+              <div class="company-heading">
+                <span class="company-logo-slot" aria-hidden="true">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="30"
+                    height="30"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="#13b6ec"
+                      d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h16q.825 0 1.413.588T22 6v12q0 .825-.587 1.413T20 20zm0-2h16V8H4zm3.5-1l-1.4-1.4L8.675 13l-2.6-2.6L7.5 9l4 4zm4.5 0v-2h6v2z"
+                    />
+                  </svg>
+                </span>
+                <h4>Company Name</h4>
+              </div>
+              <p>
+                Developed responsive interfaces, component systems, and
+                interactive experiences with modern frontend tools.
+              </p>
+              <div class="experience-techs" aria-label="Technologies used">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>Vue.js</span>
+              </div>
+            </div>
+            <div class="experience-labels">
+              <span class="experience-date">2023 - 2024</span>
+              <h3>Frontend Developer</h3>
+            </div>
+            <span class="timeline-point" aria-hidden="true"></span>
+          </article>
+
+          <article
+            class="experience-card"
+            :class="{ active: activeExperience === 2 }"
+            role="button"
+            tabindex="0"
+            @click="activeExperience = 2"
+            @keydown.enter="activeExperience = 2"
+            @keydown.space.prevent="activeExperience = 2"
+          >
+            <div class="experience-content">
+              <div class="company-heading">
+                <span class="company-logo-slot" aria-hidden="true">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="30"
+                    height="30"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="#13b6ec"
+                      d="M4.584 21.438a12.08 12.08 0 0 0 7.349 2.495a12 12 0 0 0 7.887-2.967c-.944.607-3.64 2.023-7.887 2.023c-3.708 0-6.068-.81-7.349-1.55m8.158.606c2.966 0 6.202-.809 8.09-2.427c.539-.405 1.01-1.011 1.483-1.753c.27-.472.539-1.011.741-1.483c-1.82 2.63-7.011 4.315-12.404 4.315c-3.776 0-7.888-1.214-9.506-3.573c1.483 3.236 6 4.92 11.596 4.92m-3.236-5.257C3.37 16.787.472 13.955 0 12c0 .674.067 1.483.202 2.09c.068.27.27.674.607 1.079c1.483 1.55 5.191 3.707 11.595 3.707c8.697 0 10.72-2.898 11.124-3.842c.27-.674.472-1.888.472-2.967v-.674c-.607 2.292-8.022 5.394-14.494 5.394m-8.427-9.91C.742 7.55.337 8.763.202 9.37c-.067.27 0 .404.068.607c.741 1.55 4.45 4.044 13.078 4.044c5.259 0 9.371-1.28 10.045-3.64c.135-.404.135-.876 0-1.483c-.202-.674-.472-1.483-.809-2.09c.068 3.101-8.562 5.124-12.944 5.124c-4.719 0-8.696-1.888-8.696-4.248c.067-.337.135-.606.135-.809M19.82 3.034c.068.067.068.135.068.27c0 1.348-4.045 3.64-10.517 3.64c-4.787 0-5.663-1.753-5.663-2.9c0-.404.135-.808.472-1.213c-.607.607-1.146 1.147-1.686 1.82c-.202.27-.337.54-.337.675c0 2.36 5.865 3.977 11.259 3.977c5.797 0 8.427-1.887 8.427-3.573c0-.606-.203-.943-.81-1.618a17 17 0 0 0-1.213-1.078m-1.753-1.281A11.8 11.8 0 0 0 11.933.067C9.64.067 7.55.674 5.73 1.82c-.539.27-.876.54-.876.877c0 1.01 2.36 2.09 6.54 2.09c4.112 0 7.348-1.214 7.348-2.36c.067-.202-.203-.405-.675-.674"
+                    />
+                  </svg>
+                </span>
+                <h4>Company Name</h4>
+              </div>
+              <p>
+                Created landing pages, dashboards, and custom web solutions
+                focused on usability and maintainable code.
+              </p>
+              <div class="experience-techs" aria-label="Technologies used">
+                <span>React Native</span>
+                <span>JavaScript</span>
+                <span>CSS</span>
+                <span>Git</span>
+              </div>
+            </div>
+            <div class="experience-labels">
+              <span class="experience-date">2022 - 2023</span>
+              <h3>Web Developer</h3>
+            </div>
+            <span class="timeline-point" aria-hidden="true"></span>
+          </article>
+        </div>
+
+        <div class="cta-card">
+          <h2>READY TO BUILD SOMETHING EXTRAORDINARY?</h2>
+          <p>
+            I'm currently available for senior-level engineering roles and
+            architectural consultation.
+          </p>
+          <div class="cta-buttons">
+            <a class="cta-primary" href="#contact" aria-label="Go to contact form">Get In Touch</a>
+            <a class="cta-secondary" href="https://github.com/jonathan" target="_blank" rel="noopener noreferrer" aria-label="View GitHub profile (opens in new tab)">View Github</a>
+          </div>
+        </div>
+      </section>
     </main>
     <!-- ═══ FOOTER ═══ -->
     <footer></footer>
@@ -1129,7 +1462,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, onMounted } from "vue";
+import { ref, onMounted } from "vue";
 
 const track = ref(null);
 
@@ -1141,62 +1474,7 @@ onMounted(() => {
   }
 });
 
-const projects = reactive([
-  {
-    title: "E-Commerce Dashboard",
-    category: "WEB APPLICATION",
-    accent: "#13b6ec",
-    link: "#",
-    tags: ["Next.js", "TypeScript", "Chart.js"],
-    description:
-      "Engineered a high-throughput merchant interface to resolve real-time synchronization issues across global storefronts, resulting in a 40% reduction in latency.",
-    images: [{ real: false }, { real: false }, { real: false }],
-    current: 0,
-  },
-  {
-    title: "NeoVault Mobile",
-    category: "MOBILE",
-    accent: "#6366f1",
-    link: "#",
-    tags: ["React Native", "Firebase", "Stripe"],
-    description:
-      "Developed a secure, end-to-end encrypted mobile wallet for digital assets. Integrated biometrics and multi-signature authorization protocols.",
-    images: [{ real: false }, { real: false }, { real: false }],
-    current: 0,
-  },
-  {
-    title: "Lumina AI Hub",
-    category: "AI & UI/UX",
-    accent: "#06b6d4",
-    link: "#",
-    tags: ["Python", "OpenAI", "FastAPI"],
-    description:
-      "Designed and built an AI-driven CMS that automates semantic tagging and content generation, increasing editorial output by 200%.",
-    images: [{ real: false }, { real: false }, { real: false }],
-    current: 0,
-  },
-  {
-    title: "Developer Portfolio",
-    category: "WEB APPLICATION",
-    accent: "#13b6ec",
-    link: "#",
-    tags: ["Vue.js", "Vite", "CSS"],
-    description:
-      "Built a responsive personal portfolio focused on performance, accessibility, technical storytelling, and polished visual presentation across desktop, tablet, and mobile devices.",
-    images: [{ real: false }, { real: false }, { real: false }],
-    current: 0,
-  },
-]);
-
-function prevImage(idx) {
-  const p = projects[idx];
-  p.current = p.current === 0 ? p.images.length - 1 : p.current - 1;
-}
-
-function nextImage(idx) {
-  const p = projects[idx];
-  p.current = p.current === p.images.length - 1 ? 0 : p.current + 1;
-}
+const activeExperience = ref(0);
 </script>
 
 <style scoped>
@@ -1259,7 +1537,9 @@ function nextImage(idx) {
   display: flex;
   align-items: center;
 }
-.right-header button {
+.right-header a {
+  display: inline-flex;
+  align-items: center;
   background-color: #13b6ec;
   color: #101d22;
   border: none;
@@ -1267,10 +1547,11 @@ function nextImage(idx) {
   border-radius: 6px;
   font-weight: 700;
   font-size: 14px;
+  text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.right-header button:hover {
+.right-header a:hover {
   background-color: #0fa0d4;
   transform: scale(1.05);
 }
@@ -1418,13 +1699,14 @@ function nextImage(idx) {
   width: 120px;
   height: 40px;
   background: #13b6ec;
+  color: #101d22;
   border: none;
   border-radius: 12px;
   font-size: 12px;
   font-weight: 700;
+  text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  cursor: pointer;
 }
 
 .view-word:hover {
@@ -1446,13 +1728,12 @@ function nextImage(idx) {
   background: #101d22;
   color: #ffffff;
   border-radius: 12px;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 700;
+  text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  cursor: pointer;
   border: 1px solid #94a3b8;
-  font-size: 15px;
 }
 
 .contact-me:hover {
@@ -1846,6 +2127,7 @@ function nextImage(idx) {
   font-size: 15px;
   font-weight: 700;
   cursor: pointer;
+  text-decoration: none;
   transition:
     background 0.3s ease,
     border-color 0.3s ease,
@@ -1853,6 +2135,33 @@ function nextImage(idx) {
     transform 0.3s ease;
 }
 
+.dowloand-cv a {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  gap: 12px;
+  width: 311px;
+  height: 60px;
+  background: #101d22;
+  color: #ffffff;
+  border: 1px solid #94a3b8;
+  border-radius: 12px;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.dowloand-cv a:hover,
 .dowloand-cv button:hover {
   background: #1e293b;
   border-color: #13b6ec;
@@ -2051,7 +2360,6 @@ function nextImage(idx) {
     );
 }
 
-
 .overlay-projects {
   display: inline-flex;
   align-items: center;
@@ -2098,7 +2406,7 @@ function nextImage(idx) {
 .featured-projects p {
   max-width: 860px;
   margin: 28px 0 0;
-  color: #94A3B8;
+  color: #94a3b8;
   font-size: 22px;
   line-height: 1.45;
   font-weight: 500;
@@ -2148,32 +2456,7 @@ function nextImage(idx) {
   text-transform: uppercase;
 }
 
-.project-slider {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.project-slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.project-slide.active {
-  opacity: 1;
-  position: relative;
-}
-
-.project-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.project-slide-placeholder {
+.project-image-placeholder {
   width: 100%;
   height: 100%;
   display: flex;
@@ -2185,81 +2468,9 @@ function nextImage(idx) {
   letter-spacing: 1px;
 }
 
-.project-slide-placeholder span {
+.project-image-placeholder span {
   text-align: center;
   padding: 20px;
-}
-
-/* Slider buttons */
-.slider-btn {
-  position: absolute;
-  top: 50%;
-  z-index: 6;
-  transform: translateY(-50%);
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(16, 29, 34, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 50%;
-  cursor: pointer;
-  opacity: 0;
-  transition:
-    opacity 0.25s ease,
-    background 0.25s ease;
-}
-
-.project-card:hover .slider-btn {
-  opacity: 1;
-}
-
-.slider-btn:hover {
-  background: rgba(19, 182, 236, 0.55);
-  border-color: #13b6ec;
-}
-
-.slider-prev {
-  left: 12px;
-}
-
-.slider-next {
-  right: 12px;
-}
-
-.slider-btn svg {
-  width: 20px;
-  height: 20px;
-  display: block;
-}
-
-/* Dots */
-.slider-dots {
-  position: absolute;
-  bottom: 12px;
-  left: 50%;
-  z-index: 6;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 8px;
-}
-
-.slider-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.35);
-  cursor: pointer;
-  transition:
-    background 0.25s ease,
-    transform 0.25s ease;
-}
-
-.slider-dot.active {
-  background: #ffffff;
-  box-shadow: 0 0 10px rgba(19, 182, 236, 0.6);
-  transform: scale(1.25);
 }
 
 /* Content area */
@@ -2349,9 +2560,406 @@ function nextImage(idx) {
     border-color 0.25s ease;
 }
 
-.project-footer .project-icon:hover {
-  background: rgba(19, 182, 236, 0.12);
+.fourth-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 80px 60px;
+  box-sizing: border-box;
+}
+
+.overlay-experience {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+  color: #13b6ec;
+}
+
+.overlay-experience p {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #67d8ff;
+}
+
+.featured-experience {
+  width: 100%;
+  max-width: 900px;
+  margin-bottom: 40px;
+}
+
+.featured-experience h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 60px;
+  line-height: 0.95;
+  font-weight: 800;
+  letter-spacing: -3px;
+}
+
+.featured-experience h2 span {
+  color: #67d8ff;
+}
+
+.featured-experience p {
+  max-width: 860px;
+  margin: 28px 0 0;
+  color: #94a3b8;
+  font-size: 22px;
+  line-height: 1.45;
+  font-weight: 500;
+}
+
+.experience-timeline {
+  position: relative;
+  display: grid;
+  gap: 32px;
+  width: 100%;
+  max-width: 1100px;
+  align-self: center;
+  margin-top: 24px;
+}
+
+.experience-timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    180deg,
+    rgba(19, 182, 236, 0),
+    rgba(19, 182, 236, 0.9),
+    rgba(19, 182, 236, 0)
+  );
+}
+
+.experience-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr;
+  align-items: center;
+}
+
+.experience-card:nth-child(odd) .experience-content {
+  grid-column: 1;
+  grid-row: 1;
+  margin-right: 24px;
+}
+
+.experience-card:nth-child(odd) .experience-labels {
+  grid-column: 3;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding-left: 24px;
+}
+
+.experience-card:nth-child(even) .experience-labels {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  padding-right: 24px;
+}
+
+.experience-card:nth-child(even) .experience-content {
+  grid-column: 3;
+  grid-row: 1;
+  margin-left: 24px;
+}
+
+.experience-content {
+  background: rgba(30, 41, 59, 0.32);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 18px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+  padding: 26px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.company-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.company-logo-slot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+}
+
+.company-heading h4 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.experience-techs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.experience-techs span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 6px 14px;
+  border: 1px solid rgba(19, 182, 236, 0.22);
+  border-radius: 999px;
+  color: #13b6ec;
+  background: rgba(19, 182, 236, 0.08);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.experience-date {
+  display: inline-flex;
+  color: #13b6ec;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+  white-space: nowrap;
+}
+
+.experience-labels h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 22px;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.experience-content p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.timeline-point {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+  justify-self: center;
+  width: 16px;
+  height: 16px;
+  background: #1e293b;
+  border: 2px solid rgba(148, 163, 184, 0.45);
+  border-radius: 50%;
+  z-index: 2;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.experience-card.active .timeline-point {
+  background: #13b6ec;
   border-color: #13b6ec;
+  box-shadow:
+    0 0 0 8px rgba(19, 182, 236, 0.12),
+    0 0 24px rgba(19, 182, 236, 0.75);
+}
+
+.cta-card {
+  width: 100%;
+  margin-top: 60px;
+  background: rgba(30, 41, 59, 0.32);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 24px;
+  padding: 48px 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+}
+
+.cta-card h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  max-width: 520px;
+}
+
+.cta-card p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 15px;
+  line-height: 1.5;
+  max-width: 560px;
+}
+
+.cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.cta-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px;
+  height: 44px;
+  padding: 0 24px;
+  background: #13b6ec;
+  color: #101d22;
+  border: none;
+  border-radius: 12px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.cta-primary:hover {
+  background: #22c7f6;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(19, 182, 236, 0.26);
+}
+
+.cta-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px;
+  height: 44px;
+  padding: 0 24px;
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid #94a3b8;
+  border-radius: 12px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.cta-secondary:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: #13b6ec;
+  transform: translateY(-2px);
+}
+
+.cta-card h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 25px;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  max-width: 600px;
+}
+
+.cta-card p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 17px;
+  line-height: 1.5;
+  max-width: 560px;
+}
+
+.cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.cta-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px;
+  height: 52px;
+  padding: 0 24px;
+  background: #13b6ec;
+  color: #101d22;
+  border: none;
+  border-radius: 12px;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.cta-primary:hover {
+  background: #22c7f6;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(19, 182, 236, 0.26);
+}
+
+.cta-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px;
+  height: 52px;
+  padding: 0 24px;
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid #94a3b8;
+  border-radius: 12px;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.cta-secondary:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: #13b6ec;
+  transform: translateY(-2px);
 }
 
 /* Responsive grid */
@@ -2374,17 +2982,6 @@ function nextImage(idx) {
 
   .project-content h3 {
     font-size: 19px;
-  }
-
-  .slider-btn {
-    opacity: 1;
-    width: 32px;
-    height: 32px;
-  }
-
-  .slider-btn svg {
-    width: 18px;
-    height: 18px;
   }
 }
 
@@ -2619,7 +3216,8 @@ function nextImage(idx) {
     justify-content: center;
   }
 
-  .dowloand-cv button {
+  .dowloand-cv button,
+  .dowloand-cv a {
     width: 100%;
     max-width: 311px;
   }
