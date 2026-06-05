@@ -2962,29 +2962,6 @@ const activeExperience = ref(0);
   transform: translateY(-2px);
 }
 
-/* Responsive grid */
-@media (max-width: 1024px) {
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-}
-
-@media (max-width: 640px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .project-content {
-    padding: 18px 20px 20px;
-  }
-
-  .project-content h3 {
-    font-size: 19px;
-  }
-}
-
 @keyframes scrollTech {
   0% {
     transform: translateX(0);
@@ -2993,7 +2970,6 @@ const activeExperience = ref(0);
     transform: translateX(-50%);
   }
 }
-/* ═══════════════════════════════════ */
 
 /* Focus visible (a11y) */
 :focus-visible {
@@ -3013,10 +2989,12 @@ const activeExperience = ref(0);
   }
 }
 
-/* ═══════════════════════════════════
-   RESPONSIVE - TABLET (≤1024px)
-   ═══════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE — TABLET (≤1024px)
+   Tablets en landscape y dispositivos medianos
+   ═══════════════════════════════════════════════════════════ */
 @media (max-width: 1024px) {
+  /* ── Hero ── */
   .principal-main {
     flex-direction: column;
     align-items: center;
@@ -3063,6 +3041,7 @@ const activeExperience = ref(0);
     max-width: 350px;
   }
 
+  /* ── About (second-main) ── */
   .second-main {
     grid-template-columns: 1fr;
     padding: 60px 40px;
@@ -3070,12 +3049,12 @@ const activeExperience = ref(0);
     justify-items: center;
   }
 
-  .second-left-main {
+  .second-left-main,
+  .second-right-main {
     max-width: 100%;
   }
 
   .second-right-main {
-    max-width: 100%;
     justify-self: center;
   }
 
@@ -3090,15 +3069,41 @@ const activeExperience = ref(0);
     max-width: 100%;
   }
 
+  /* ── Projects (third-section) ── */
   .third-section {
     padding: 60px 40px;
   }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  /* ── Experience (fourth-section) ── */
+  .fourth-section {
+    padding: 60px 40px;
+  }
+
+  .featured-experience h2 {
+    font-size: 48px;
+    letter-spacing: -2px;
+  }
+
+  .featured-experience p {
+    font-size: 18px;
+  }
+
+  .experience-timeline {
+    max-width: 900px;
+  }
 }
 
-/* ═══════════════════════════════════
-   RESPONSIVE - MOBILE (≤768px)
-   ═══════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE — MOBILE (≤768px)
+   Tablets en portrait, móviles grandes
+   ═══════════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
+  /* ── Header ── */
   .layout-header {
     padding: 0 16px;
   }
@@ -3107,6 +3112,7 @@ const activeExperience = ref(0);
     display: none;
   }
 
+  /* ── Hero ── */
   .left-main {
     padding: 40px 0 0;
   }
@@ -3149,13 +3155,10 @@ const activeExperience = ref(0);
     max-width: 280px;
   }
 
+  /* ── About (second-main) ── */
   .second-main {
     padding: 48px 20px;
     gap: 40px;
-  }
-
-  .third-section {
-    padding: 48px 20px;
   }
 
   .second-left-main {
@@ -3181,14 +3184,8 @@ const activeExperience = ref(0);
     justify-self: center;
   }
 
-  .textsecond h2 {
-    text-align: center;
-  }
-
-  .textsecond p {
-    text-align: center;
-  }
-
+  .textsecond h2,
+  .textsecond p,
   .subtextsecond p {
     text-align: center;
   }
@@ -3222,6 +3219,7 @@ const activeExperience = ref(0);
     max-width: 311px;
   }
 
+  /* ── Contact form (second-right-main) ── */
   .second-right-main {
     padding: 32px 24px;
     min-width: 0;
@@ -3240,12 +3238,138 @@ const activeExperience = ref(0);
     width: 18px;
     height: 18px;
   }
+
+  /* ── Projects (third-section) ── */
+  .third-section {
+    padding: 48px 20px;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .project-content {
+    padding: 18px 20px 20px;
+  }
+
+  .project-content h3 {
+    font-size: 19px;
+  }
+
+  /* ── Experience (fourth-section) ── */
+  .fourth-section {
+    padding: 48px 20px;
+  }
+
+  .featured-experience h2 {
+    font-size: 36px;
+    letter-spacing: -1.5px;
+  }
+
+  .featured-experience p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  /* Experience timeline: stack cards in single column,
+     timeline line moves to the left edge */
+  .experience-timeline {
+    gap: 28px;
+  }
+
+  .experience-timeline::before {
+    left: 11px;
+    transform: none;
+  }
+
+  .experience-card {
+    grid-template-columns: 32px 1fr;
+    align-items: flex-start;
+  }
+
+  .experience-card:nth-child(odd) .experience-content,
+  .experience-card:nth-child(even) .experience-content {
+    grid-column: 2;
+    grid-row: 2;
+    margin: 0;
+  }
+
+  .experience-card:nth-child(odd) .experience-labels,
+  .experience-card:nth-child(even) .experience-labels {
+    grid-column: 2;
+    grid-row: 1;
+    align-items: flex-start;
+    padding: 0 0 8px;
+  }
+
+  .timeline-point {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    align-self: flex-start;
+    margin-top: 22px;
+  }
+
+  .experience-content {
+    padding: 22px;
+  }
+
+  .company-heading h4 {
+    font-size: 20px;
+  }
+
+  .experience-labels h3 {
+    font-size: 18px;
+  }
+
+  .experience-content p {
+    font-size: 15px;
+  }
+
+  .experience-techs {
+    margin-top: 16px;
+    gap: 8px;
+  }
+
+  .experience-techs span {
+    font-size: 11px;
+    padding: 5px 12px;
+  }
+
+  /* ── CTA card ── */
+  .cta-card {
+    margin-top: 48px;
+    padding: 40px 28px;
+    border-radius: 20px;
+  }
+
+  .cta-card h2 {
+    font-size: 22px;
+  }
+
+  .cta-card p {
+    font-size: 14px;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .cta-primary,
+  .cta-secondary {
+    width: 100%;
+    min-width: 0;
+  }
 }
 
-/* ═══════════════════════════════════
-   RESPONSIVE - SMALL MOBILE (≤480px)
-   ═══════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE — SMALL MOBILE (≤480px)
+   Móviles pequeños (iPhone SE, Galaxy A, etc.)
+   ═══════════════════════════════════════════════════════════ */
 @media (max-width: 480px) {
+  /* ── Hero ── */
   .principal-main {
     padding: 0 16px;
   }
@@ -3267,17 +3391,10 @@ const activeExperience = ref(0);
     max-width: 220px;
   }
 
+  /* ── About (second-main) ── */
   .second-main {
     padding: 32px 16px;
     gap: 32px;
-  }
-
-  .third-section {
-    padding: 32px 16px;
-  }
-
-  .second-right-main {
-    padding: 24px 16px;
   }
 
   .icons div[class] {
@@ -3295,6 +3412,11 @@ const activeExperience = ref(0);
     height: 30px;
   }
 
+  /* ── Contact form ── */
+  .second-right-main {
+    padding: 24px 16px;
+  }
+
   .form-field input,
   .form-field textarea {
     font-size: 15px;
@@ -3303,6 +3425,97 @@ const activeExperience = ref(0);
   .send-message {
     height: 56px;
     font-size: 15px;
+  }
+
+  /* ── Projects (third-section) ── */
+  .third-section {
+    padding: 32px 16px;
+  }
+
+  .project-content {
+    padding: 16px 18px 18px;
+  }
+
+  .project-content h3 {
+    font-size: 18px;
+  }
+
+  .project-content p {
+    font-size: 13px;
+  }
+
+  .project-footer a {
+    font-size: 13px;
+  }
+
+  .project-footer .project-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  /* ── Experience (fourth-section) ── */
+  .fourth-section {
+    padding: 32px 16px;
+  }
+
+  .featured-experience {
+    margin-bottom: 28px;
+  }
+
+  .featured-experience h2 {
+    font-size: 28px;
+    letter-spacing: -1px;
+  }
+
+  .featured-experience p {
+    font-size: 15px;
+    margin-top: 18px;
+  }
+
+  .overlay-experience p {
+    font-size: 11px;
+    letter-spacing: 1.6px;
+  }
+
+  .experience-content {
+    padding: 18px;
+  }
+
+  .company-logo-slot {
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .company-heading h4 {
+    font-size: 18px;
+  }
+
+  .experience-labels h3 {
+    font-size: 16px;
+  }
+
+  .experience-content p {
+    font-size: 14px;
+  }
+
+  .experience-date {
+    font-size: 11px;
+    letter-spacing: 1.2px;
+  }
+
+  /* ── CTA card ── */
+  .cta-card {
+    padding: 32px 20px;
+    border-radius: 18px;
+  }
+
+  .cta-card h2 {
+    font-size: 19px;
+  }
+
+  .cta-card p {
+    font-size: 13px;
   }
 }
 
