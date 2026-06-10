@@ -1536,7 +1536,7 @@
             >
             <a
               class="cta-secondary"
-              href="https://github.com/jonathan"
+              href="https://github.com/JonathanRosas14"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="View GitHub profile (opens in new tab)"
@@ -1659,7 +1659,7 @@
                 <ul class="info-social-list">
                   <li>
                     <a
-                      href="https://github.com/jonathan-rosas"
+                      href="https://github.com/JonathanRosas14"
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="GitHub (opens in new tab)"
@@ -1699,7 +1699,7 @@
                   </li>
                   <li>
                     <a
-                      href="https://linkedin.com/in/jonathan-rosas"
+                      href="https://www.linkedin.com/in/jonathan-rosas14"
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="LinkedIn (opens in new tab)"
@@ -1739,7 +1739,7 @@
                   </li>
                   <li>
                     <a
-                      href="https://twitter.com/jonathan_rosas"
+                      href="#"
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="Twitter (opens in new tab)"
@@ -1846,7 +1846,7 @@
       <div class="footer-container">
         <div class="footer-social">
           <a
-            href="https://github.com/jonathan-rosas"
+            href="https://github.com/JonathanRosas14"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub (opens in new tab)"
@@ -1865,7 +1865,7 @@
             </svg>
           </a>
           <a
-            href="https://linkedin.com/in/jonathan-rosas"
+            href="https://www.linkedin.com/in/jonathan-rosas14"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn (opens in new tab)"
@@ -1884,7 +1884,7 @@
             </svg>
           </a>
           <a
-            href="https://twitter.com/jonathan_rosas"
+            href="#"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Twitter (opens in new tab)"
