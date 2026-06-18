@@ -1,5 +1,21 @@
-# Vue 3 + Vite
+# Jonathan Rosas - Portfolio
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Personal portfolio website built with Vue 3 + Vite. Showcasing projects, experience, and technical skills in full-stack development, automation, and IT.
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+## Tech Stack
+
+- **Frontend:** Vue 3, Vite
+- **Deployment:** GitHub Pages
+
+## Projects
+
+- **Financial Management System** - Vue.js, Node.js, Express, MySQL, Docker
+- **Vehicle Rental Platform** - Vue.js, Node.js, Express, MySQL, Docker
+- **ONU Cut Automation System** - Python, Automation
+- **Telecable Corporate Website** - Vue.js
+
+## Contact
+
+- GitHub: [JonathanRosas14](https://github.com/JonathanRosas14)
+- LinkedIn: [jonathan-rosas14](https://linkedin.com/in/jonathan-rosas14)
+- Email: jonarosas888@gmail.com

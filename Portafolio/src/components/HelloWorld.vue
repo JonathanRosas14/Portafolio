@@ -101,16 +101,16 @@
           <!-- Título principal -->
           <div class="text-main">
             <h1>
-              Hi, I'm Jonathan. <span>Crafting</span> Digital Experiences.
+              Hi, I'm Jonathan. <span>Building</span> Digital Solutions.
             </h1>
           </div>
 
           <!-- Subtítulo -->
           <div class="subtext-main">
             <p>
-              Full-stack developer and UI designer focused on building
-              functional, high-performance web applications that solve
-              real-world problems.
+              Full-stack developer and Systems Engineering student focused on building
+              high-performance web applications, automation solutions, and
+              scalable backend systems.
             </p>
           </div>
 
@@ -247,10 +247,10 @@
               </div>
               <!--Textos-->
               <div class="textsecond">
-                <h2>Engineering with <span>intent</span>.</h2>
+                <h2>Engineering with <span>purpose</span>.</h2>
                 <p>
-                  I'm Jonathan, a full-stack engineer driven by the intersection
-                  of performance and aesthetics.
+                  I'm Jonathan, a full-stack developer driven by the intersection
+                  of technology and operational efficiency.
                 </p>
               </div>
             </div>
@@ -259,17 +259,16 @@
           <!-- 2da sección Textos-->
           <div class="subtextsecond">
             <p>
-              With over 2 years of coding experience, my trajectory has been
-              defined by a relentless curiosity for how things work under the
-              hood. I specialize in building scalable web applications that
-              don't just function, but delight users through thoughtful
-              interaction design.
+              With over 3 years of experience in systems engineering and development,
+              my trajectory has been defined by a relentless curiosity for how things
+              work under the hood. I specialize in building scalable web applications
+              and automation solutions that drive real operational efficiency.
             </p>
             <p>
-              I believe that technical excellence is a prerequisite, but empathy
-              is the differentiator. Whether I'm architecting a complex backend
-              or polishing a CSS transition, I keep the end-user's experience at
-              the heart of every decision.
+              I'm passionate about leveraging technology to solve real-world problems.
+              Whether I'm architecting a REST API, automating telecom processes,
+              or leading a technical team, I focus on delivering measurable
+              results that improve efficiency and user experience.
             </p>
           </div>
 
@@ -1013,8 +1012,8 @@
             <div class="contact-heading">
               <h2>Let’s work together</h2>
               <p>
-                Ready to start your next project? I’m currently accepting new
-                opportunities.
+                Ready to collaborate? I’m currently available for new
+                opportunities and projects.
               </p>
             </div>
 
@@ -1118,38 +1117,40 @@
         </div>
         <!-- ═══ PROJECTS GRID ═══ -->
         <div class="projects-grid">
-          <!-- E-Commerce Dashboard -->
+          <!-- Sistema de Gestión Financiera -->
           <article class="project-card" v-reveal="200">
             <div class="project-media">
               <span class="project-category" style="background: #13b6ec"
-                >WEB APPLICATION</span
+                >FULL-STACK</span
               >
               <div
                 class="project-image-placeholder"
                 style="background: #13b6ec22"
               >
-                <span>E-Commerce Dashboard — screenshot</span>
+                <span>Financial Management System</span>
               </div>
             </div>
             <div class="project-content">
-              <h3>E-Commerce Dashboard</h3>
+              <h3>Financial Management System</h3>
               <div class="project-tags">
-                <span>Next.js</span>
-                <span>TypeScript</span>
-                <span>Chart.js</span>
+                <span>Vue.js</span>
+                <span>Node.js</span>
+                <span>MySQL</span>
+                <span>Docker</span>
               </div>
               <p>
-                Engineered a high-throughput merchant interface to resolve
-                real-time synchronization issues across global storefronts,
-                resulting in a 40% reduction in latency.
+                Full-stack financial platform with user authentication,
+                transaction tracking, and financial reporting. Containerized
+                with Docker Compose for seamless deployment and scalability.
               </p>
               <div class="project-footer">
                 <a
-                  href="#"
-                  rel="nofollow"
-                  aria-label="View demo for E-Commerce Dashboard"
+                  href="https://github.com/JonathanRosas14/Project_Finances"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View source on GitHub for Financial Management System"
                 >
-                  View Demo
+                  View Source
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -1173,7 +1174,7 @@
                   >
                     <path
                       fill="currentColor"
-                      d="m8 18l-6-6l6-6l1.425 1.425l-4.6 4.6L9.4 16.6zm8 0l-1.425-1.425l4.6-4.6L14.6 7.4L16 6l6 6z"
+                      d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.94c0-1.1.39-1.99 1.03-2.69c-.1-.25-.45-1.27.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.37.2 2.39.1 2.64c.64.7 1.03 1.59 1.03 2.69c0 3.84-2.34 4.68-4.57 4.93c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"
                     />
                   </svg>
                 </span>
@@ -1181,38 +1182,41 @@
             </div>
           </article>
 
-          <!-- NeoVault Mobile -->
+          <!-- Plataforma de Renta de Vehículos -->
           <article class="project-card" v-reveal="300">
             <div class="project-media">
               <span class="project-category" style="background: #6366f1"
-                >MOBILE</span
+                >FULL-STACK</span
               >
               <div
                 class="project-image-placeholder"
                 style="background: #6366f122"
               >
-                <span>NeoVault Mobile — screenshot</span>
+                <span>Vehicle Rental Platform</span>
               </div>
             </div>
             <div class="project-content">
-              <h3>NeoVault Mobile</h3>
+              <h3>Vehicle Rental Platform</h3>
               <div class="project-tags">
-                <span>React Native</span>
-                <span>Firebase</span>
-                <span>Stripe</span>
+                <span>Vue.js</span>
+                <span>Node.js</span>
+                <span>Express</span>
+                <span>MySQL</span>
+                <span>Docker</span>
               </div>
               <p>
-                Developed a secure, end-to-end encrypted mobile wallet for
-                digital assets. Integrated biometrics and multi-signature
-                authorization protocols.
+                Complete vehicle rental web application featuring catalog
+                browsing, reservation system, and admin panel. Modular
+                architecture with normalized relational database.
               </p>
               <div class="project-footer">
                 <a
-                  href="#"
-                  rel="nofollow"
-                  aria-label="View demo for NeoVault Mobile"
+                  href="https://github.com/JonathanRosas14/Proyecto_AutoRent"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View source on GitHub for Rental Platform"
                 >
-                  View Demo
+                  View Source
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -1236,7 +1240,7 @@
                   >
                     <path
                       fill="currentColor"
-                      d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h16q.825 0 1.413.588T22 6v12q0 .825-.587 1.413T20 20zm0-2h16V8H4zm3.5-1l-1.4-1.4L8.675 13l-2.6-2.6L7.5 9l4 4zm4.5 0v-2h6v2z"
+                      d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.94c0-1.1.39-1.99 1.03-2.69c-.1-.25-.45-1.27.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.37.2 2.39.1 2.64c.64.7 1.03 1.59 1.03 2.69c0 3.84-2.34 4.68-4.57 4.93c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"
                     />
                   </svg>
                 </span>
@@ -1244,38 +1248,39 @@
             </div>
           </article>
 
-          <!-- Lumina AI Hub -->
+          <!-- Automatización de Cortes ONU -->
           <article class="project-card" v-reveal="400">
             <div class="project-media">
               <span class="project-category" style="background: #06b6d4"
-                >AI &amp; UI/UX</span
+                >AUTOMATION</span
               >
               <div
                 class="project-image-placeholder"
                 style="background: #06b6d422"
               >
-                <span>Lumina AI Hub — screenshot</span>
+                <span>ONU Cut Automation System</span>
               </div>
             </div>
             <div class="project-content">
-              <h3>Lumina AI Hub</h3>
+              <h3>ONU Cut Automation System</h3>
               <div class="project-tags">
                 <span>Python</span>
-                <span>OpenAI</span>
-                <span>FastAPI</span>
+                <span>Automation</span>
+                <span>Telecom</span>
               </div>
               <p>
-                Designed and built an AI-driven CMS that automates semantic
-                tagging and content generation, increasing editorial output by
-                200%.
+                Python solution automating mass ONU cut processes in telecom
+                environments. Reduced processing time for ~200 monthly cuts from
+                4 hours to seconds, achieving 99% efficiency gain.
               </p>
               <div class="project-footer">
                 <a
-                  href="#"
-                  rel="nofollow"
-                  aria-label="View demo for Lumina AI Hub"
+                  href="https://github.com/JonathanRosas14/ProyectoDocker"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View source on GitHub for ONU Cut Automation"
                 >
-                  View Demo
+                  View Source
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -1294,12 +1299,12 @@
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
                     height="20"
-                    viewBox="0 0 32 32"
+                    viewBox="0 0 24 24"
                     aria-hidden="true"
                   >
                     <path
                       fill="currentColor"
-                      d="M24.292 15.547a3.93 3.93 0 0 0 4.115-3.145a2.57 2.57 0 0 0-2.161-1.177c-2.272-.052-3.491 2.651-1.953 4.323zm-9.177-10.85l5.359-3.104L18.766.63l-7.391 4.281l.589.328l1.119.629l2.032-1.176zm6.046-3.39c.089.027.161.1.188.188l2.484 7.593a.285.285 0 0 1-.125.344a5.06 5.06 0 0 0-2.317 5.693a5.066 5.066 0 0 0 5.401 3.703a.3.3 0 0 1 .307.203l2.563 7.803a.3.3 0 0 1-.125.344l-7.859 4.771a.3.3 0 0 1-.131.036a.26.26 0 0 1-.203-.041l-2.765-1.797a.3.3 0 0 1-.109-.129l-5.396-12.896l-8.219 4.875c-.016.011-.037.021-.052.032a.3.3 0 0 1-.261-.021l-1.859-1.093a.283.283 0 0 1-.115-.381l7.953-15.749a.27.27 0 0 1 .135-.131L18.615.045a.29.29 0 0 1 .292-.005zm-8.322 5.1l-1.932-1.089l-7.693 15.229l1.396.823l6.631-9.015a.28.28 0 0 1 .271-.12a.29.29 0 0 1 .235.177l7.228 17.296l1.933 1.251l-8.063-24.552zm13.406 10.557c-2.256 0-3.787-2.292-2.923-4.376c.86-2.083 3.563-2.619 5.156-1.025c.595.593.928 1.396.928 2.235a3.16 3.16 0 0 1-3.161 3.167z"
+                      d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.94c0-1.1.39-1.99 1.03-2.69c-.1-.25-.45-1.27.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.37.2 2.39.1 2.64c.64.7 1.03 1.59 1.03 2.69c0 3.84-2.34 4.68-4.57 4.93c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"
                     />
                   </svg>
                 </span>
@@ -1307,7 +1312,7 @@
             </div>
           </article>
 
-          <!-- Developer Portfolio -->
+          <!-- Sitio Web Corporativo Telecable -->
           <article class="project-card" v-reveal="500">
             <div class="project-media">
               <span class="project-category" style="background: #13b6ec"
@@ -1317,28 +1322,29 @@
                 class="project-image-placeholder"
                 style="background: #13b6ec22"
               >
-                <span>Developer Portfolio — screenshot</span>
+                <span>Telecable Corporate Website</span>
               </div>
             </div>
             <div class="project-content">
-              <h3>Developer Portfolio</h3>
+              <h3>Telecable Corporate Website</h3>
               <div class="project-tags">
                 <span>Vue.js</span>
                 <span>Vite</span>
                 <span>CSS</span>
               </div>
               <p>
-                Built a responsive personal portfolio focused on performance,
-                accessibility, technical storytelling, and polished visual
-                presentation across desktop, tablet, and mobile devices.
+                Corporate website developed for Telecable Comunicaciones using
+                Vue.js. Modern, responsive interface for service presentation
+                and client contact management.
               </p>
               <div class="project-footer">
                 <a
-                  href="#"
-                  rel="nofollow"
-                  aria-label="View demo for Developer Portfolio"
+                  href="https://github.com/JonathanRosas14"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View more projects on GitHub"
                 >
-                  View Demo
+                  More Projects
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -1356,22 +1362,23 @@
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
-                    height="19.721059972105998"
-                    viewBox="0 0 717 707"
+                    height="20"
+                    viewBox="0 0 24 24"
                     aria-hidden="true"
                   >
                     <path
                       fill="currentColor"
-                      d="M0 342v-1C9 225 51 138 124 83C196 27 274 0 359 0c89-1 172 29 246 89c75 59 112 147 112 261v7c0 115-37 201-112 260c-75 60-158 90-247 90h-4c-87-1-167-31-241-91C39 557 1 466 0 342m337-157V27h-24c-5 6-9 13-13 19s-8 12-12 19c-4 6-9 14-12 20c-4 6-7 12-10 19c-6 10-11 20-15 29c-5 9-9 18-12 26c6 4 13 9 21 12c9 3 18 6 27 8c10 2 19 3 27 4c9 1 17 2 23 2m42-158v157c5 0 11 1 17 0c6 0 13-1 19-2c11-2 24-5 34-8c11-4 21-9 28-15c-12-29-25-52-38-74s-28-41-44-57v-1zm-108 9v-1c-7 3-14 8-22 11c-7 3-16 7-23 11q-21 10.5-42 24c-13 9-26 19-37 29c4 4 9 8 13 11s9 7 14 11c4 2 9 5 14 9c5 3 11 7 17 11c8-18 16-37 26-54c10-18 21-35 32-50c1-2 2-4 4-6c1-1 2-4 4-6m306 74v-1c-25-19-47-35-69-45s-44-20-64-28c16 16 30 36 39 55c10 20 20 41 28 61c4-2 9-4 15-8c5-3 12-6 18-9c6-4 11-8 17-12c6-5 12-9 16-13m-17 223h115c0-37-8-72-23-108c-14-35-34-64-59-89v-1c-5 8-12 15-19 20c-8 5-15 9-23 13c-5 3-10 7-15 9c-5 3-12 5-17 8c4 8 8 17 12 25c3 9 8 19 10 28c6 16 10 33 14 50c3 15 5 31 5 45M198 185v-1c-8-4-17-7-24-11c-7-5-14-10-20-14c-6-3-12-7-17-11s-9-8-13-12c-26 25-45 53-57 86c-13 33-22 70-26 110h123c0-28 4-55 11-82c6-28 15-49 23-65m139 147V217c-8 1-18 1-27 0c-10-1-20-4-29-7c-8-2-18-4-26-7c-9-2-18-6-25-10c-6 10-11 22-15 35c-5 12-8 25-11 37c-2 12-3 25-4 36s-2 22-2 31zm42-113v113h148c0-6 0-13-1-21c-2-7-3-16-4-24c-3-12-6-25-10-37c-4-11-8-22-13-31c-2-5-4-11-6-15c-3-5-6-8-8-11c-11 8-26 13-44 17c-17 4-37 8-55 9zM164 365H41c0 17 3 36 8 59c5 24 15 46 26 70c5 12 11 24 17 36c7 11 15 23 23 34c6-4 12-7 17-10c6-3 13-7 19-10c7-3 14-6 22-10c7-3 16-7 25-11c-8-25-17-49-23-76c-7-26-11-52-11-81zm173 117V365H198c0 8 1 20 3 32c1 12 4 25 6 38c4 14 7 28 11 40s8 22 12 31c18-7 36-12 48-15c13-4 25-7 37-8h11c4-1 8-1 11-1m42-117v116c7 1 15 2 23 3c9 1 20 3 29 5l15 3c5 2 11 3 16 4c6 2 12 3 18 5c5 2 10 3 14 5c13-33 21-60 26-83c5-22 7-41 7-57v-1zm296 1v-1H560v6c-1 19-4 41-8 64c-4 22-13 48-25 80c16 8 31 16 43 24s23 17 31 25c17-17 32-40 45-70c13-29 22-59 27-91c1-6 1-12 2-18zM337 670V514c-25 4-46 9-62 13s-28 8-36 12c6 15 12 28 18 40c6 11 13 23 19 33c2 4 6 8 9 13c3 4 5 9 8 13c3 5 6 11 9 17c4 5 7 11 11 15zm42 0h23c9-7 18-17 25-28c8-11 17-24 23-35c7-13 14-25 20-37s11-23 15-31c-11-4-26-8-41-12s-36-8-65-12zm198-82v-1c-2-3-6-7-9-10s-8-7-13-10q-6-4.5-15-9c-9-4.5-14-7-21-11c-4 8-11 22-21 41c-9 19-25 42-45 67c25-4 47-13 67-25c22-11 41-26 57-42m-372-32v-1c-7 4-18 9-29 14c-12 5-25 11-37 19c7 6 14 12 20 16c6 5 13 9 19 13c11 7 24 14 37 20s29 12 49 18c-7-8-12-18-17-26s-11-16-16-24s-9-17-13-25c-5-8-9-16-13-24"
+                      d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.94c0-1.1.39-1.99 1.03-2.69c-.1-.25-.45-1.27.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.37.2 2.39.1 2.64c.64.7 1.03 1.59 1.03 2.69c0 3.84-2.34 4.68-4.57 4.93c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"
                     />
                   </svg>
                 </span>
               </div>
             </div>
           </article>
+        
         </div>
       </section>
-      <!-- ═══ FOURTH SECTION - EXPERIENCE ═══ -->
+      FOURTH SECTION - EXPERIENCE ═══ -->
       <section class="fourth-section" id="experience">
         <div class="overlay-experience" v-reveal>
           <p>CAREER ODYSSEY</p>
@@ -1379,8 +1386,8 @@
         <div class="featured-experience" v-reveal="100">
           <h2>Professional <span>Experience</span></h2>
           <p>
-            A journey through building robust systems, crafting fluid user
-            experiences, and solving complex architectural puzzles.
+            From telecom automation to full-stack web applications — a journey
+            of building robust systems and solving real operational challenges.
           </p>
         </div>
 
@@ -1402,30 +1409,32 @@
                     xmlns="http://www.w3.org/2000/svg"
                     width="30"
                     height="30"
-                    viewBox="0 0 20 20"
+                    viewBox="0 0 24 24"
                   >
                     <path
                       fill="#13b6ec"
-                      d="M18 13h1c.55 0 1 .45 1 1.01v2.98c0 .56-.45 1.01-1 1.01h-4c-.55 0-1-.45-1-1.01v-2.98c0-.56.45-1.01 1-1.01h1v-2h-5v2h1c.55 0 1 .45 1 1.01v2.98c0 .56-.45 1.01-1 1.01H8c-.55 0-1-.45-1-1.01v-2.98c0-.56.45-1.01 1-1.01h1v-2H4v2h1c.55 0 1 .45 1 1.01v2.98C6 17.55 5.55 18 5 18H1c-.55 0-1-.45-1-1.01v-2.98C0 13.45.45 13 1 13h1v-2c0-1.1.9-2 2-2h5V7H8c-.55 0-1-.45-1-1.01V3.01C7 2.45 7.45 2 8 2h4c.55 0 1 .45 1 1.01v2.98C13 6.55 12.55 7 12 7h-1v2h5c1.1 0 2 .9 2 2z"
+                      d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-2 .89-2 2v10c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2m-6 0h-4V4h4z"
                     />
                   </svg>
                 </span>
-                <h4>Company Name</h4>
+                <h4>Telecable Comunicaciones S.A.S</h4>
               </div>
               <p>
-                Building scalable web applications, improving frontend
-                performance, and designing user-focused interfaces.
+                Led a technical team of 8 field technicians, optimized maintenance routes,
+                and developed automated solutions in Python that reduced ONU cut processing
+                time by 99%. Managed warehouse inventory with custom Python system.
               </p>
               <div class="experience-techs" aria-label="Technologies used">
+                <span>Python</span>
                 <span>Vue.js</span>
                 <span>Node.js</span>
-                <span>TypeScript</span>
-                <span>PostgreSQL</span>
+                <span>Docker</span>
+                <span>MySQL</span>
               </div>
             </div>
             <div class="experience-labels">
-              <span class="experience-date">2024 - Present</span>
-              <h3>Full-Stack Developer</h3>
+              <span class="experience-date">Sep 2023 - Jun 2026</span>
+              <h3>Auxiliar en Sistemas / Soporte Técnico</h3>
             </div>
             <span class="timeline-point" aria-hidden="true"></span>
           </article>
@@ -1451,81 +1460,34 @@
                   >
                     <path
                       fill="#13b6ec"
-                      d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h16q.825 0 1.413.588T22 6v12q0 .825-.587 1.413T20 20zm0-2h16V8H4zm3.5-1l-1.4-1.4L8.675 13l-2.6-2.6L7.5 9l4 4zm4.5 0v-2h6v2z"
+                      d="M15.55 13c.75 0 1.41-.41 1.75-1.03l3.58-6.49A.996.996 0 0 0 20.01 4H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2zM6.16 6h12.15l-2.76 5H8.53zM7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2m10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2"
                     />
                   </svg>
                 </span>
-                <h4>Company Name</h4>
+                <h4>VM Store Sport</h4>
               </div>
               <p>
-                Developed responsive interfaces, component systems, and
-                interactive experiences with modern frontend tools.
+                Delivered personalized customer service, exceeded sales targets through
+                effective negotiation strategies, and developed client loyalty programs
+                that increased purchase recurrence.
               </p>
-              <div class="experience-techs" aria-label="Technologies used">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
-                <span>Vue.js</span>
+              <div class="experience-techs" aria-label="Skills used">
+                <span>Customer Service</span>
+                <span>Sales</span>
+                <span>Negotiation</span>
               </div>
             </div>
             <div class="experience-labels">
-              <span class="experience-date">2023 - 2024</span>
-              <h3>Frontend Developer</h3>
+              <span class="experience-date">Nov 2020 - Dec 2022</span>
+              <h3>Vendedor</h3>
             </div>
             <span class="timeline-point" aria-hidden="true"></span>
           </article>
-
-          <article
-            class="experience-card"
-            v-reveal="440"
-            :class="{ active: activeExperience === 2 }"
-            role="button"
-            tabindex="0"
-            @click="activeExperience = 2"
-            @keydown.enter="activeExperience = 2"
-            @keydown.space.prevent="activeExperience = 2"
-          >
-            <div class="experience-content">
-              <div class="company-heading">
-                <span class="company-logo-slot" aria-hidden="true">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="30"
-                    height="30"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      fill="#13b6ec"
-                      d="M4.584 21.438a12.08 12.08 0 0 0 7.349 2.495a12 12 0 0 0 7.887-2.967c-.944.607-3.64 2.023-7.887 2.023c-3.708 0-6.068-.81-7.349-1.55m8.158.606c2.966 0 6.202-.809 8.09-2.427c.539-.405 1.01-1.011 1.483-1.753c.27-.472.539-1.011.741-1.483c-1.82 2.63-7.011 4.315-12.404 4.315c-3.776 0-7.888-1.214-9.506-3.573c1.483 3.236 6 4.92 11.596 4.92m-3.236-5.257C3.37 16.787.472 13.955 0 12c0 .674.067 1.483.202 2.09c.068.27.27.674.607 1.079c1.483 1.55 5.191 3.707 11.595 3.707c8.697 0 10.72-2.898 11.124-3.842c.27-.674.472-1.888.472-2.967v-.674c-.607 2.292-8.022 5.394-14.494 5.394m-8.427-9.91C.742 7.55.337 8.763.202 9.37c-.067.27 0 .404.068.607c.741 1.55 4.45 4.044 13.078 4.044c5.259 0 9.371-1.28 10.045-3.64c.135-.404.135-.876 0-1.483c-.202-.674-.472-1.483-.809-2.09c.068 3.101-8.562 5.124-12.944 5.124c-4.719 0-8.696-1.888-8.696-4.248c.067-.337.135-.606.135-.809M19.82 3.034c.068.067.068.135.068.27c0 1.348-4.045 3.64-10.517 3.64c-4.787 0-5.663-1.753-5.663-2.9c0-.404.135-.808.472-1.213c-.607.607-1.146 1.147-1.686 1.82c-.202.27-.337.54-.337.675c0 2.36 5.865 3.977 11.259 3.977c5.797 0 8.427-1.887 8.427-3.573c0-.606-.203-.943-.81-1.618a17 17 0 0 0-1.213-1.078m-1.753-1.281A11.8 11.8 0 0 0 11.933.067C9.64.067 7.55.674 5.73 1.82c-.539.27-.876.54-.876.877c0 1.01 2.36 2.09 6.54 2.09c4.112 0 7.348-1.214 7.348-2.36c.067-.202-.203-.405-.675-.674"
-                    />
-                  </svg>
-                </span>
-                <h4>Company Name</h4>
-              </div>
-              <p>
-                Created landing pages, dashboards, and custom web solutions
-                focused on usability and maintainable code.
-              </p>
-              <div class="experience-techs" aria-label="Technologies used">
-                <span>React Native</span>
-                <span>JavaScript</span>
-                <span>CSS</span>
-                <span>Git</span>
-              </div>
-            </div>
-            <div class="experience-labels">
-              <span class="experience-date">2022 - 2023</span>
-              <h3>Web Developer</h3>
-            </div>
-            <span class="timeline-point" aria-hidden="true"></span>
-          </article>
-        </div>
-
-        <div class="cta-card" v-reveal>
+        </div>        <div class="cta-card" v-reveal>
           <h2>READY TO BUILD SOMETHING EXTRAORDINARY?</h2>
           <p>
-            I'm currently available for senior-level engineering roles and
-            architectural consultation.
+            I'm currently available for full-stack development roles and
+            technical leadership opportunities.
           </p>
           <div class="cta-buttons">
             <a
@@ -1553,9 +1515,9 @@
               <span class="contact-highlight">something great.</span>
             </h2>
             <p>
-              I’m currently looking for new opportunities and creative
-              collaborations. Whether you have a question or just want to say
-              hi, my inbox is always open.
+              I’m currently looking for new opportunities in development, automation,
+              or IT. Whether you have a question or just want to say hi, my inbox
+              is always open.
             </p>
           </header>
 
@@ -1742,7 +1704,7 @@
                       href="#"
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label="Twitter (opens in new tab)"
+                      aria-label="WhatsApp (opens in new tab)"
                     >
                       <span class="info-icon-box" aria-hidden="true">
                         <svg
@@ -1757,7 +1719,7 @@
                           />
                         </svg>
                       </span>
-                      <span class="info-social-name">Twitter</span>
+                      <span class="info-social-name">WhatsApp</span>
                       <svg
                         class="info-arrow"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1833,7 +1795,7 @@
                 </div>
                 <div class="info-reach-content">
                   <h3>Global Reach</h3>
-                  <p>Working remotely from UTC+2</p>
+                  <p>Working remotely from Cali, Colombia (UTC-5)</p>
                 </div>
               </div>
             </aside>
@@ -1887,7 +1849,7 @@
             href="#"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Twitter (opens in new tab)"
+            aria-label="WhatsApp (opens in new tab)"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
