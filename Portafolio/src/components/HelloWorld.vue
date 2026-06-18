@@ -79,7 +79,7 @@
           </svg>
         </button>
         <a
-          href="/curriculum-vitae.pdf"
+          :href="cvPdf"
           download
           aria-label="Download Curriculum Vitae PDF"
         >
@@ -987,7 +987,7 @@
           <!-- 4ta sección Boton de descarga curriculum-->
           <div class="dowloand-cv">
             <a
-:href="cvPdf"
+            :href="cvPdf"
               download
               aria-label="Download Curriculum Vitae PDF"
             >
