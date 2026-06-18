@@ -987,7 +987,7 @@
           <!-- 4ta sección Boton de descarga curriculum-->
           <div class="dowloand-cv">
             <a
-href="/Jonathan_Rosas_CV.pdf"
+:href="cvPdf"
               download
               aria-label="Download Curriculum Vitae PDF"
             >
@@ -1899,6 +1899,7 @@ href="/Jonathan_Rosas_CV.pdf"
 
 <script setup>
 import { ref, onMounted, watch } from "vue";
+import cvPdf from "../assets/Jonathan_Rosas_CV.pdf";
 
 /* ── Reveal-on-scroll directive ──
    Uso:  v-reveal           (sin delay)
