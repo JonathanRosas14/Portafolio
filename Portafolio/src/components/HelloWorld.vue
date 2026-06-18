@@ -987,7 +987,7 @@
           <!-- 4ta sección Boton de descarga curriculum-->
           <div class="dowloand-cv">
             <a
-              href="/curriculum-vitae.pdf"
+href="/Jonathan_Rosas_CV.pdf"
               download
               aria-label="Download Curriculum Vitae PDF"
             >
