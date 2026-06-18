@@ -1378,7 +1378,7 @@
         
         </div>
       </section>
-      FOURTH SECTION - EXPERIENCE ═══ -->
+      <!-- FOURTH SECTION - EXPERIENCE -->
       <section class="fourth-section" id="experience">
         <div class="overlay-experience" v-reveal>
           <p>CAREER ODYSSEY</p>
